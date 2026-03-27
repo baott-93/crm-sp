@@ -610,6 +610,103 @@ a{color:inherit;text-decoration:none}
   border-top:1px solid var(--n100);
 }
 .tk-fadv-row.open{display:flex}
+/* ── Date picker popover ── */
+.tk-date-wrap{position:relative}
+.tk-date-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:500;border:1.5px solid var(--n200);background:var(--n0);color:var(--n600);cursor:pointer;white-space:nowrap;transition:all .15s;font-family:inherit}
+.tk-date-btn.active{border-color:var(--p400);color:var(--p600);background-color:var(--p50)}
+.tk-date-pop{position:absolute;top:calc(100% + 6px);left:0;z-index:300;background:var(--n0);border:1px solid var(--n200);border-radius:10px;box-shadow:0 4px 24px rgba(0,0,0,.13);padding:14px;min-width:264px;display:none}
+.tk-date-pop.open{display:block}
+.tk-date-presets{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:2px}
+.tk-dp{padding:6px 10px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;text-align:center;border:1.5px solid var(--n200);color:var(--n600);transition:all .15s;user-select:none}
+.tk-dp:hover{border-color:var(--p300);background:var(--p50);color:var(--p600)}
+.tk-dp.active{border-color:var(--p400);background:var(--p50);color:var(--p600);font-weight:600}
+.tk-date-sep{height:1px;background:var(--n100);margin:10px 0}
+.tk-date-clbl{font-size:10px;font-weight:700;color:var(--n400);text-transform:uppercase;letter-spacing:.6px;margin-bottom:7px}
+.tk-date-inputs{display:flex;align-items:center;gap:6px}
+.tk-date-inputs input[type=date]{flex:1;padding:5px 7px;border:1.5px solid var(--n200);border-radius:6px;font-size:12px;color:var(--n700);background:var(--n50);outline:none;cursor:pointer;font-family:inherit}
+.tk-date-inputs input[type=date]:focus{border-color:var(--p400)}
+.tk-date-inputs span{color:var(--n400);font-size:14px;flex-shrink:0}
+.tk-date-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.tk-date-clear-btn{font-size:12px;color:var(--n400);cursor:pointer;background:none;border:none;padding:0;font-family:inherit}
+.tk-date-clear-btn:hover{color:var(--red500)}
+.tk-date-apply-btn{padding:5px 14px;border-radius:6px;font-size:12px;font-weight:600;background:var(--p500);color:#fff;border:none;cursor:pointer;font-family:inherit}
+.tk-date-apply-btn:hover{background:var(--p600)}
+
+/* ══ CHIA CA v2 ══ */
+.cc2-wrap{padding:0;overflow:hidden}
+.cc2-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--n200)}
+.cc2-datelabel{font-size:11px;color:var(--n400);margin-top:2px}
+.cc2-nav{display:flex;gap:4px}
+.cc2-navbtn{width:28px;height:28px;border:1px solid var(--n200);background:var(--n0);border-radius:6px;cursor:pointer;font-size:15px;color:var(--n600);display:flex;align-items:center;justify-content:center;line-height:1}
+.cc2-navbtn:hover{background:var(--n50)}
+.cc2-vtabs,.cc2-stabs{display:flex;border:1px solid var(--n200);border-radius:6px;overflow:hidden}
+.cc2-vtab,.cc2-stab{padding:5px 14px;font-size:12px;font-weight:500;border:none;border-right:1px solid var(--n200);background:var(--n0);cursor:pointer;color:var(--n500);font-family:inherit;white-space:nowrap}
+.cc2-vtab:last-child,.cc2-stab:last-child{border-right:none}
+.cc2-vtab.active{background:var(--p500);color:#fff;font-weight:600}
+.cc2-stab.active{background:var(--p50);color:var(--p600);font-weight:600}
+.cc2-actbtn{padding:5px 13px;font-size:12px;border-radius:6px;border:1px solid var(--n200);background:var(--n0);cursor:pointer;font-weight:500;color:var(--n700);font-family:inherit;white-space:nowrap}
+.cc2-actbtn:hover{background:var(--n50)}
+.cc2-savebtn{background:var(--p500);color:#fff;border-color:var(--p500)}
+.cc2-savebtn:hover{background:var(--p600)}
+/* Day view */
+.cc2-day-view{display:flex;gap:16px;padding:16px 18px;min-height:340px}
+.cc2-pool{width:210px;min-width:210px;display:flex;flex-direction:column;background:var(--n0);border:1px solid var(--n200);border-radius:8px;padding:14px;align-self:flex-start;max-height:480px;overflow-y:auto}
+.cc2-pool-hdr{font-size:10px;font-weight:700;color:var(--n400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.cc2-pool-badge{display:inline-block;background:var(--yel50);color:var(--yel700);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.cc2-pool-badge.done{background:var(--grn50);color:var(--grn600)}
+.cc2-scard{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:6px;cursor:grab;border:1px solid var(--n200);margin-bottom:6px;background:var(--n0);transition:all .15s;font-size:12px;font-weight:500;color:var(--n700);user-select:none}
+.cc2-scard:hover{border-color:var(--p400);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.cc2-scard.dragging{opacity:.4}
+.cc2-sav{width:28px;height:28px;border-radius:50%;background:var(--p100);color:var(--p600);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+.cc2-pool-done{font-size:12px;color:var(--grn600);text-align:center;padding:18px 0}
+/* Channel grid */
+.cc2-ch-grid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-content:start}
+.cc2-ch-card{background:var(--n0);border:2px solid var(--n200);border-radius:8px;overflow:hidden;min-height:130px;transition:all .15s;display:flex;flex-direction:column}
+.cc2-ch-card.drag-over{border-color:var(--p400);box-shadow:0 0 0 3px var(--p100)}
+.cc2-ch-hdr{display:flex;align-items:center;gap:8px;padding:9px 13px;border-bottom:1px solid var(--n200);background:var(--n50)}
+.cc2-ch-bar{width:4px;height:22px;border-radius:2px;flex-shrink:0}
+.cc2-ch-name{font-size:12px;font-weight:600;flex:1;color:var(--n700)}
+.cc2-ch-cnt{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:var(--n100);color:var(--n500)}
+.cc2-ch-cnt.has-staff{background:var(--p100);color:var(--p600)}
+.cc2-ch-body{padding:10px 12px;flex:1;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;min-height:60px}
+.cc2-ch-body.empty::after{content:'Kéo nhân sự vào đây';color:var(--n300);font-size:11px;display:flex;align-items:center;justify-content:center;width:100%;height:40px}
+.cc2-chip{display:flex;align-items:center;gap:5px;padding:4px 6px 4px 4px;border-radius:20px;background:var(--p50);font-size:11px;font-weight:500;color:var(--p600);cursor:grab;user-select:none}
+.cc2-chip-av{width:20px;height:20px;border-radius:50%;background:var(--p500);color:#fff;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700}
+.cc2-chip-rm{width:16px;height:16px;border-radius:50%;border:none;background:transparent;color:var(--p600);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;padding:0;font-family:inherit}
+.cc2-chip-rm:hover{background:var(--p100)}
+/* Summary bar */
+.cc2-sumbar{display:flex;align-items:center;gap:20px;padding:10px 18px;border-top:1px solid var(--n200);background:var(--n50);font-size:12px;flex-wrap:wrap}
+.cc2-sum-item{display:flex;align-items:center;gap:5px}
+.cc2-sum-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+/* Week view */
+.cc2-week-view{padding:16px 18px}
+.cc2-week-tbl{width:100%;border-collapse:collapse;background:var(--n0);border-radius:8px;overflow:hidden;border:1px solid var(--n200);font-size:12px}
+.cc2-week-tbl th,.cc2-week-tbl td{border:1px solid var(--n200);padding:9px 10px;text-align:center}
+.cc2-week-tbl th{background:var(--n50);font-weight:600;color:var(--n500)}
+.cc2-shift-lbl{background:var(--n50)!important;font-weight:600;text-align:left!important;width:80px;color:var(--n600)}
+.cc2-wk-cell{cursor:pointer;transition:background .12s;min-height:54px;vertical-align:top}
+.cc2-wk-cell:hover{background:var(--p50)}
+.cc2-wk-cell.done{background:var(--grn50)}
+.cc2-wk-cell.partial{background:var(--yel50)}
+.cc2-wk-cell.empty{color:var(--n400)}
+.cc2-wk-cell.off{background:var(--n50);color:var(--n300)}
+.cc2-wk-icon{font-size:14px;display:block;margin-bottom:2px}
+.cc2-wk-text{font-size:10px;color:var(--n500)}
+/* Month view */
+.cc2-month-view{padding:16px 18px}
+.cc2-month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cc2-mg-hdr{font-size:11px;font-weight:700;color:var(--n400);text-align:center;padding:8px 4px}
+.cc2-mg-day{aspect-ratio:1;border:1px solid var(--n200);border-radius:6px;padding:6px;cursor:pointer;font-size:12px;transition:all .12s;display:flex;flex-direction:column;align-items:center;gap:3px}
+.cc2-mg-day:hover{border-color:var(--p400)}
+.cc2-mg-day.today{border-color:var(--p400);background:var(--p50)}
+.cc2-mg-day.mg-empty{border-color:transparent;cursor:default}
+.cc2-mg-num{font-weight:600;font-size:13px;color:var(--n700)}
+.cc2-mg-day.today .cc2-mg-num{color:var(--p600)}
+.cc2-mg-dots{display:flex;gap:3px}
+.cc2-dot{width:6px;height:6px;border-radius:50%}
+.cc2-dot.done{background:var(--grn600)}
+.cc2-dot.partial{background:var(--yel600)}
+.cc2-dot.empty{background:var(--n200)}
 .tk-fadv-lbl{
   font-size:10px;font-weight:700;letter-spacing:.07em;
   color:var(--n400);text-transform:uppercase;white-space:nowrap;flex-shrink:0;
@@ -1070,7 +1167,7 @@ a{color:inherit;text-decoration:none}
     <div class="view active" id="view-dashboard">
       <div class="mg mg-4">
         <div class="mc"><div class="mc-icon blue">🎫</div><div class="mc-body"><div class="mc-lbl">Ticket hôm nay</div><div class="mc-val blue">87</div><span class="trend tup">↑ 12 so hôm qua</span></div></div>
-        <div class="mc"><div class="mc-icon yellow">⏳</div><div class="mc-body"><div class="mc-lbl">Đang xử lý</div><div class="mc-val a">23</div><span class="trend tfl">In-Progress + Pending</span></div></div>
+        <div class="mc"><div class="mc-icon yellow">⏳</div><div class="mc-body"><div class="mc-lbl">Đang xử lý</div><div class="mc-val a">23</div><span class="trend tfl">In-Progress + Đang chờ phản hồi</span></div></div>
         <div class="mc"><div class="mc-icon red">⚠️</div><div class="mc-body"><div class="mc-lbl">Vi phạm SLA</div><div class="mc-val r">3</div><span class="trend tdn">Cần xử lý ngay</span></div></div>
         <div class="mc"><div class="mc-icon green">⚡</div><div class="mc-body"><div class="mc-lbl">FRT trung bình</div><div class="mc-val g">3:42</div><span class="trend tup">Mục tiêu &lt;5p ✓</span></div></div>
       </div>
@@ -1100,7 +1197,7 @@ a{color:inherit;text-decoration:none}
                 <td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Yêu cầu gia hạn gói học 3 trường</td>
                 <td><span class="chtag ch-c">Tổng đài</span></td>
                 <td><span class="schip s-warn">2h</span></td>
-                <td><span class="sp sp-pend">Pending</span></td>
+                <td><span class="sp sp-pend">Đang chờ phản hồi</span></td>
               </tr>
               <tr>
                 <td class="tk-id-cell">TK-0096</td>
@@ -1144,7 +1241,7 @@ a{color:inherit;text-decoration:none}
     <!-- ══════ VIEW: INBOX ══════ -->
     <div class="view" id="view-inbox">
       <div class="fbar">
-        <div class="fbtn on">Tất cả (47)</div><div class="fbtn">Mới (12)</div><div class="fbtn">Đang xử lý (23)</div><div class="fbtn">Pending (8)</div><div class="fbtn">Vi phạm SLA (3)</div><div class="fbtn">Zalo</div><div class="fbtn">Chat SP</div><div class="fbtn">Tổng đài</div>
+        <div class="fbtn on">Tất cả (47)</div><div class="fbtn">Mới (12)</div><div class="fbtn">Đang xử lý (23)</div><div class="fbtn">Đang chờ phản hồi (8)</div><div class="fbtn">Vi phạm SLA (3)</div><div class="fbtn">Zalo</div><div class="fbtn">Chat SP</div><div class="fbtn">Tổng đài</div>
       </div>
       <div class="inbox-list">
         <div class="iitem breach"><div class="ih"><span class="chtag ch-z">Zalo OA</span><span class="iid">TK-2026-0089</span><span class="itime">08:42</span></div><div class="ititle">Lỗi đăng nhập tài khoản giáo viên THCS Trần Phú</div><div class="iprev">Thầy ơi em đăng nhập mãi không được, báo sai mật khẩu nhưng em chắc chắn đúng rồi...</div><div class="ifoot"><span class="achip">Nguyễn Hoa</span><span class="schip s-breach">SLA vi phạm · 2h35p</span></div></div>
@@ -1162,7 +1259,7 @@ a{color:inherit;text-decoration:none}
       <div class="mg mg-4" style="margin-bottom:14px">
         <div class="mc"><div class="mc-icon blue">📋</div><div class="mc-body"><div class="mc-lbl">Mới</div><div class="mc-val blue">12</div></div></div>
         <div class="mc"><div class="mc-icon yellow">⚙️</div><div class="mc-body"><div class="mc-lbl">Đang xử lý</div><div class="mc-val a">23</div></div></div>
-        <div class="mc"><div class="mc-icon red">⏸️</div><div class="mc-body"><div class="mc-lbl">Pending</div><div class="mc-val a">8</div></div></div>
+        <div class="mc"><div class="mc-icon red">⏸️</div><div class="mc-body"><div class="mc-lbl">Đang chờ phản hồi</div><div class="mc-val a">8</div></div></div>
         <div class="mc"><div class="mc-icon green">✅</div><div class="mc-body"><div class="mc-lbl">Đã đóng hôm nay</div><div class="mc-val g">44</div></div></div>
       </div>
 
@@ -1176,13 +1273,32 @@ a{color:inherit;text-decoration:none}
         </div>
         <div class="tk-fdivider"></div>
         <!-- 1. Thời gian -->
-        <select class="tk-fsel" id="fsel-date" onchange="tkFilter()" title="Lọc theo thời gian">
-          <option value="">Thời gian</option>
-          <option value="today">Hôm nay</option>
-          <option value="yesterday">Hôm qua</option>
-          <option value="week">7 ngày qua</option>
-          <option value="month">Tháng này</option>
-        </select>
+        <div class="tk-date-wrap" id="tk-date-wrap">
+          <button class="tk-date-btn" id="tk-date-btn" type="button" onclick="tkDateToggle()">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1 5h10" stroke="currentColor" stroke-width="1.3"/><path d="M4 1v2M8 1v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <span id="tk-date-label">Thời gian</span>
+            <svg id="tk-date-chev" width="10" height="10" viewBox="0 0 10 10" fill="none" style="transition:transform .2s;flex-shrink:0"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="tk-date-pop" id="tk-date-pop">
+            <div class="tk-date-presets">
+              <div class="tk-dp" id="dp-today"     onclick="tkDatePreset('today')">Hôm nay</div>
+              <div class="tk-dp" id="dp-yesterday" onclick="tkDatePreset('yesterday')">Hôm qua</div>
+              <div class="tk-dp" id="dp-week"      onclick="tkDatePreset('week')">7 ngày qua</div>
+              <div class="tk-dp" id="dp-month"     onclick="tkDatePreset('month')">Tháng này</div>
+            </div>
+            <div class="tk-date-sep"></div>
+            <div class="tk-date-clbl">Tùy chỉnh khoảng thời gian</div>
+            <div class="tk-date-inputs">
+              <input type="date" id="fsel-date-from" onchange="tkDateCustom()">
+              <span>→</span>
+              <input type="date" id="fsel-date-to" onchange="tkDateCustom()">
+            </div>
+            <div class="tk-date-foot">
+              <button class="tk-date-clear-btn" onclick="tkDateClear()">Xóa bộ lọc</button>
+              <button class="tk-date-apply-btn" onclick="tkDateClose()">Áp dụng</button>
+            </div>
+          </div>
+        </div>
         <!-- 2. SLA vi phạm chip -->
         <div class="tk-fchip fc-sla" id="fc-sla" onclick="tkChip('sla',this)" title="Chỉ hiện ticket đang vi phạm SLA">
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 3v2.5l1.5 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
@@ -1218,7 +1334,7 @@ a{color:inherit;text-decoration:none}
           <option value="">Trạng thái</option>
           <option value="new">Mới</option>
           <option value="progress">Đang xử lý</option>
-          <option value="pending">Pending</option>
+          <option value="pending">Đang chờ phản hồi</option>
           <option value="resolved">Đã đóng</option>
         </select>
         <!-- 7. Agent -->
@@ -1342,7 +1458,7 @@ a{color:inherit;text-decoration:none}
           <div class="board-col">
             <div class="board-col-hd">
               <div class="board-col-dot" style="background:#F59E0B"></div>
-              <span class="board-col-title">Pending</span>
+              <span class="board-col-title">Đang chờ phản hồi</span>
               <span class="board-col-cnt">8</span>
             </div>
             <div class="board-cards">
@@ -1395,7 +1511,7 @@ a{color:inherit;text-decoration:none}
                 <tr data-status="new" data-priority="critical" data-channel="zalo" data-agent="nguyen-hoa" data-sla="breach" data-school="thcs-tran-phu" data-product="account" data-date="today"><td class="tk-id-cell">TK-2026-0089</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600">Lỗi đăng nhập GV THCS Trần Phú</td><td><span class="chtag ch-z">Zalo</span></td><td style="color:var(--red600);font-weight:700;font-size:11px">Critical</td><td style="font-size:11px">Nguyễn Hoa</td><td class="ctr"><span class="schip s-breach">Vi phạm</span></td><td class="ctr"><span class="sp sp-br">SLA!</span></td></tr>
                 <tr data-status="new" data-priority="medium" data-channel="chat" data-agent="unassigned" data-sla="ok" data-school="thpt-le-hong-phong" data-product="elearning" data-date="today"><td class="tk-id-cell">TK-2026-0097</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Video bài giảng bị giật lớp 11</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="color:var(--red600);font-size:11px;font-weight:600">Chưa gán</td><td class="ctr"><span class="schip s-ok">4h 10p</span></td><td class="ctr"><span class="sp sp-new">Mới</span></td></tr>
                 <tr data-status="progress" data-priority="high" data-channel="chat" data-agent="tran-minh" data-sla="warn" data-school="thcs-tran-phu" data-product="exam" data-date="today"><td class="tk-id-cell">TK-2026-0091</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Không tải được đề thi kỳ 2</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:700;font-size:11px">High</td><td style="font-size:11px">Trần Minh</td><td class="ctr"><span class="schip s-warn">1h 20p</span></td><td class="ctr"><span class="sp sp-prog">Đang xử lý</span></td></tr>
-                <tr data-status="pending" data-priority="medium" data-channel="phone" data-agent="le-thy" data-sla="warn" data-school="thpt-le-hong-phong" data-product="elearning" data-date="week"><td class="tk-id-cell">TK-2026-0094</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Yêu cầu gia hạn gói học</td><td><span class="chtag ch-c">Tổng đài</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h</span></td><td class="ctr"><span class="sp sp-pend">Pending</span></td></tr>
+                <tr data-status="pending" data-priority="medium" data-channel="phone" data-agent="le-thy" data-sla="warn" data-school="thpt-le-hong-phong" data-product="elearning" data-date="week"><td class="tk-id-cell">TK-2026-0094</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Yêu cầu gia hạn gói học</td><td><span class="chtag ch-c">Tổng đài</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h</span></td><td class="ctr"><span class="sp sp-pend">Đang chờ phản hồi</span></td></tr>
                 <tr data-status="progress" data-priority="high" data-channel="chat" data-agent="le-thy" data-sla="warn" data-school="thpt-nguyen-du" data-product="mobile" data-date="yesterday"><td class="tk-id-cell">TK-2026-0088</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">App mobile crash khi mở bài thi</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:700;font-size:11px">High</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h 40p</span></td><td class="ctr"><span class="sp sp-prog">Đang xử lý</span></td></tr>
                 <tr data-status="new" data-priority="low" data-channel="zalo" data-agent="pham-tuan" data-sla="ok" data-school="other" data-product="elearning" data-date="today"><td class="tk-id-cell">TK-2026-0096</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Hỏi về chính sách hoàn phí</td><td><span class="chtag ch-z">Zalo</span></td><td style="font-size:11px;color:var(--n500)">Low</td><td style="font-size:11px">Phạm Tuấn</td><td class="ctr"><span class="schip s-ok">4h</span></td><td class="ctr"><span class="sp sp-new">Mới</span></td></tr>
                 <tr data-status="resolved" data-priority="low" data-channel="zalo-group" data-agent="tran-minh" data-sla="closed" data-school="thpt-nguyen-du" data-product="exam" data-date="today"><td class="tk-id-cell">TK-2026-0092</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lịch thi thử THPTQG đợt 2</td><td><span class="chtag ch-zg">Zalo Nhóm</span></td><td style="font-size:11px;color:var(--n500)">Low</td><td style="font-size:11px">Trần Minh</td><td class="ctr"><span class="schip s-ok">Đã đóng</span></td><td class="ctr"><span class="sp sp-res">Closed</span></td></tr>
@@ -1409,6 +1525,65 @@ a{color:inherit;text-decoration:none}
 
     <!-- ══════ VIEW: CA TRỰC ══════ -->
     <div class="view" id="view-shift">
+
+      <!-- ── CHIA CA v2 ── -->
+      <div class="card cc2-wrap" style="margin-bottom:14px">
+        <!-- Toolbar -->
+        <div class="cc2-bar">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--n800)">🗓️ Chia Ca Trực</div>
+              <div class="cc2-datelabel" id="cc2-dateLabel">Thứ 6, 27/03/2026</div>
+            </div>
+            <div class="cc2-nav">
+              <button class="cc2-navbtn" onclick="cc2Navigate(-1)">‹</button>
+              <button class="cc2-navbtn" onclick="cc2Navigate(1)">›</button>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <div class="cc2-vtabs">
+              <button class="cc2-vtab active" onclick="cc2SwitchView('day',this)">Ngày</button>
+              <button class="cc2-vtab" onclick="cc2SwitchView('week',this)">Tuần</button>
+              <button class="cc2-vtab" onclick="cc2SwitchView('month',this)">Tháng</button>
+            </div>
+            <div class="cc2-stabs">
+              <button class="cc2-stab active" id="cc2-btnAm" onclick="cc2SwitchShift('morning')">☀️ Sáng</button>
+              <button class="cc2-stab" id="cc2-btnPm" onclick="cc2SwitchShift('afternoon')">🌙 Chiều-Tối</button>
+            </div>
+            <button class="cc2-actbtn" onclick="cc2ApplyToWeek()">📋 Áp dụng cả tuần</button>
+            <button class="cc2-actbtn cc2-savebtn" id="cc2-savebtn" onclick="cc2SaveAssignment()">💾 Lưu</button>
+          </div>
+        </div>
+
+        <!-- Day View -->
+        <div class="cc2-day-view" id="cc2-dayView">
+          <div class="cc2-pool" id="cc2-staffPool">
+            <div class="cc2-pool-hdr">Nhân sự <span class="cc2-pool-badge" id="cc2-poolBadge">10</span></div>
+            <div id="cc2-poolList"></div>
+          </div>
+          <div class="cc2-ch-grid" id="cc2-channelGrid"></div>
+        </div>
+
+        <!-- Week View -->
+        <div class="cc2-week-view" id="cc2-weekView" style="display:none">
+          <table class="cc2-week-tbl" id="cc2-weekTable"></table>
+          <p style="font-size:11px;color:var(--n400);margin-top:10px">💡 Click vào ô bất kỳ để chuyển sang View Ngày và chỉnh sửa.</p>
+        </div>
+
+        <!-- Month View -->
+        <div class="cc2-month-view" id="cc2-monthView" style="display:none">
+          <div class="cc2-month-grid" id="cc2-monthGrid"></div>
+        </div>
+
+        <!-- Summary bar -->
+        <div class="cc2-sumbar">
+          <div class="cc2-sum-item"><span class="cc2-sum-dot" style="background:var(--p500)"></span>Đã phân: <strong id="cc2-sumAssigned">0</strong>/10</div>
+          <div class="cc2-sum-item"><span class="cc2-sum-dot" style="background:var(--yel600)"></span>Chưa phân: <strong id="cc2-sumUnassigned">10</strong></div>
+          <div class="cc2-sum-item"><span class="cc2-sum-dot" style="background:var(--red500,#ef4444)"></span>Khu vực trống: <strong id="cc2-sumEmpty">13</strong></div>
+          <div id="cc2-sumStatus" style="margin-left:auto;font-weight:600;font-size:12px"></div>
+        </div>
+      </div><!-- /chia ca v2 -->
+
       <div class="card">
         <div class="ct">Phân công ca — Tuần 12 (18–22/03/2026) <span class="ct-sub">3 ca/ngày · 20 agent</span></div>
         <div class="sh-hdr"><div></div><div class="sh-h" style="color:var(--yel600)">Ca sáng · 7–12h</div><div class="sh-h" style="color:var(--grn600)">Ca chiều · 12–17h</div><div class="sh-h" style="color:var(--pur600)">Ca tối · 17–22h</div></div>
@@ -2696,6 +2871,79 @@ document.head.appendChild(_style);
 
 /* ── TICKET FILTER ── */
 var _tkChips = {sla:false, unassigned:false, mine:false};
+var _tkDateState = {mode:'', from:'', to:''};  // mode: ''|preset|'custom'
+
+function tkDateToggle(){
+  var pop = document.getElementById('tk-date-pop');
+  var chev = document.getElementById('tk-date-chev');
+  var isOpen = pop.classList.toggle('open');
+  chev.style.transform = isOpen ? 'rotate(180deg)' : '';
+}
+function tkDateClose(){
+  var pop = document.getElementById('tk-date-pop');
+  var chev = document.getElementById('tk-date-chev');
+  pop.classList.remove('open');
+  chev.style.transform = '';
+}
+function _tkDateLabel(){
+  var s = _tkDateState;
+  if(!s.mode) return 'Thời gian';
+  if(s.mode === 'today')     return 'Hôm nay';
+  if(s.mode === 'yesterday') return 'Hôm qua';
+  if(s.mode === 'week')      return '7 ngày qua';
+  if(s.mode === 'month')     return 'Tháng này';
+  if(s.mode === 'custom'){
+    var f = s.from ? s.from.slice(5).replace('-','/') : '?';
+    var t = s.to   ? s.to.slice(5).replace('-','/')   : '?';
+    return f + ' → ' + t;
+  }
+  return 'Thời gian';
+}
+function _tkDateSyncUI(){
+  var s = _tkDateState;
+  ['today','yesterday','week','month'].forEach(function(k){
+    var el = document.getElementById('dp-'+k);
+    if(el) el.classList.toggle('active', s.mode === k);
+  });
+  document.getElementById('tk-date-label').textContent = _tkDateLabel();
+  document.getElementById('tk-date-btn').classList.toggle('active', !!s.mode);
+}
+function tkDatePreset(val){
+  _tkDateState = {mode: val, from:'', to:''};
+  document.getElementById('fsel-date-from').value = '';
+  document.getElementById('fsel-date-to').value = '';
+  _tkDateSyncUI();
+  tkFilter();
+  tkDateClose();
+}
+function tkDateCustom(){
+  var from = document.getElementById('fsel-date-from').value;
+  var to   = document.getElementById('fsel-date-to').value;
+  if(!from && !to){ _tkDateState = {mode:'', from:'', to:''}; }
+  else { _tkDateState = {mode:'custom', from:from, to:to}; }
+  ['today','yesterday','week','month'].forEach(function(k){
+    var el = document.getElementById('dp-'+k);
+    if(el) el.classList.remove('active');
+  });
+  _tkDateSyncUI();
+  if(from || to) tkFilter();
+}
+function tkDateClear(){
+  _tkDateState = {mode:'', from:'', to:''};
+  document.getElementById('fsel-date-from').value = '';
+  document.getElementById('fsel-date-to').value = '';
+  _tkDateSyncUI();
+  tkFilter();
+  tkDateClose();
+}
+// Close date pop on outside click
+document.addEventListener('click', function(e){
+  var wrap = document.getElementById('tk-date-wrap');
+  if(wrap && !wrap.contains(e.target)){
+    document.getElementById('tk-date-pop').classList.remove('open');
+    document.getElementById('tk-date-chev').style.transform = '';
+  }
+});
 
 function tkChip(type, el){
   _tkChips[type] = !_tkChips[type];
@@ -2749,18 +2997,18 @@ function tkFilter(){
   var prio   = document.getElementById('fsel-priority').value;
   var ch     = document.getElementById('fsel-channel').value;
   var agent  = document.getElementById('fsel-agent').value;
-  var date   = document.getElementById('fsel-date').value;
+  var date   = _tkDateState;
   var school = document.getElementById('fsel-school').value;
   var product= document.getElementById('fsel-product').value;
   var sla    = _tkChips.sla;
   var unassigned = _tkChips.unassigned;
   var mine   = _tkChips.mine;
 
-  var hasFilter = q || status || prio || ch || agent || date || school || product || sla || unassigned || mine;
+  var hasFilter = q || status || prio || ch || agent || date.mode || school || product || sla || unassigned || mine;
   document.getElementById('tk-freset').style.display = hasFilter ? '' : 'none';
 
   // Update dropdown highlights
-  ['fsel-status','fsel-priority','fsel-channel','fsel-agent','fsel-date','fsel-school','fsel-product'].forEach(function(id){
+  ['fsel-status','fsel-priority','fsel-channel','fsel-agent','fsel-school','fsel-product'].forEach(function(id){
     var sel = document.getElementById(id);
     sel.classList.toggle('active', !!sel.value);
   });
@@ -2811,12 +3059,28 @@ function _tkMatch(ds, el, q, status, prio, ch, agent, date, school, product, sla
   if(agent   && ds.agent !== agent) return false;
   if(school  && ds.school !== school) return false;
   if(product && ds.product !== product) return false;
-  if(date){
+  if(date && date.mode){
     var d = ds.date;
-    if(date === 'today'     && d !== 'today') return false;
-    if(date === 'yesterday' && d !== 'yesterday') return false;
-    if(date === 'week'      && d !== 'today' && d !== 'yesterday' && d !== 'week') return false;
-    // 'month' = show all, no restriction
+    if(date.mode === 'today'     && d !== 'today') return false;
+    if(date.mode === 'yesterday' && d !== 'yesterday') return false;
+    if(date.mode === 'week'      && d !== 'today' && d !== 'yesterday' && d !== 'week') return false;
+    // 'month' = show all (no restriction)
+    if(date.mode === 'custom'){
+      // Map data-date buckets to representative offsets (days ago)
+      var offsets = {today:0, yesterday:1, week:4, month:15};
+      var off = offsets[d];
+      if(off === undefined) off = 0;
+      var today2 = new Date(); today2.setHours(0,0,0,0);
+      var cardDate = new Date(today2); cardDate.setDate(cardDate.getDate() - off);
+      if(date.from){
+        var fromD = new Date(date.from); fromD.setHours(0,0,0,0);
+        if(cardDate < fromD) return false;
+      }
+      if(date.to){
+        var toD = new Date(date.to); toD.setHours(23,59,59,999);
+        if(cardDate > toD) return false;
+      }
+    }
   }
   if(sla        && ds.sla !== 'breach') return false;
   if(unassigned && ds.agent !== 'unassigned') return false;
@@ -2828,12 +3092,315 @@ function _tkMatch(ds, el, q, status, prio, ch, agent, date, school, product, sla
   return true;
 }
 
+/* ══ CHIA CA v2 ══ */
+const CC2_CHANNELS = [
+  { id:'ninh-binh',  name:'Ninh Bình',       color:'#2196F3' },
+  { id:'lang-son',   name:'Lạng Sơn',        color:'#4CAF50' },
+  { id:'tay-hp',     name:'Tây Hải Phòng',   color:'#FF9800' },
+  { id:'dong-hp',    name:'Đông Hải Phòng',  color:'#9C27B0' },
+  { id:'hcmc',       name:'HCMC',            color:'#F44336' },
+  { id:'bac-ninh',   name:'Bắc Ninh',        color:'#00BCD4' },
+  { id:'hn-tta',     name:'Hà Nội - TTA',    color:'#3F51B5' },
+  { id:'hn-ntl',     name:'Hà Nội - NTL',    color:'#009688' },
+  { id:'quang-ninh', name:'Quảng Ninh',      color:'#FF5722' },
+  { id:'phu-tho',    name:'Phú Thọ',         color:'#795548' },
+  { id:'crips',      name:'Crips',           color:'#607D8B' },
+  { id:'ticket',     name:'Ticket',          color:'#E91E63' },
+  { id:'hotline',    name:'Hotline',         color:'#FFC107' },
+];
+const CC2_STAFF = [
+  { id:'s01', name:'Nguyễn Văn An',   avatar:'NVA' },
+  { id:'s02', name:'Trần Thị Bình',   avatar:'TTB' },
+  { id:'s03', name:'Lê Hoàng Cường',  avatar:'LHC' },
+  { id:'s04', name:'Phạm Minh Đức',   avatar:'PMĐ' },
+  { id:'s05', name:'Hoàng Thị Em',    avatar:'HTE' },
+  { id:'s06', name:'Võ Quang Phúc',   avatar:'VQP' },
+  { id:'s07', name:'Đặng Thị Giang',  avatar:'ĐTG' },
+  { id:'s08', name:'Bùi Văn Hải',     avatar:'BVH' },
+  { id:'s09', name:'Ngô Thị Khánh',   avatar:'NTK' },
+  { id:'s10', name:'Trịnh Đình Lâm',  avatar:'TĐL' },
+];
+const CC2_WDAYS_FULL = ['Chủ nhật','Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7'];
+const CC2_WDAYS_SHORT = ['CN','T2','T3','T4','T5','T6','T7'];
+
+let cc2Date = new Date(2026, 2, 27);
+let cc2Shift = 'morning';
+let cc2View = 'day';
+let cc2Assignments = JSON.parse(localStorage.getItem('crm_shift_v2') || '{}');
+let cc2DragId = null;
+let cc2DragSrc = null;
+
+function cc2DateKey(d) {
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function cc2GetAssignment(d, shift) {
+  const key = cc2DateKey(d);
+  if(!cc2Assignments[key]) cc2Assignments[key] = {};
+  if(!cc2Assignments[key][shift]) {
+    cc2Assignments[key][shift] = {};
+    CC2_CHANNELS.forEach(ch => cc2Assignments[key][shift][ch.id] = []);
+  }
+  return cc2Assignments[key][shift];
+}
+function cc2GetAssignedSet(d, shift) {
+  const a = cc2GetAssignment(d, shift);
+  const ids = new Set();
+  Object.values(a).forEach(arr => arr.forEach(id => ids.add(id)));
+  return ids;
+}
+function cc2Save() {
+  localStorage.setItem('crm_shift_v2', JSON.stringify(cc2Assignments));
+}
+function cc2FormatDate(d) {
+  return CC2_WDAYS_FULL[d.getDay()]+', '+String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();
+}
+
+function cc2Navigate(dir) {
+  if(cc2View==='day') cc2Date.setDate(cc2Date.getDate()+dir);
+  else if(cc2View==='week') cc2Date.setDate(cc2Date.getDate()+dir*7);
+  else cc2Date.setMonth(cc2Date.getMonth()+dir);
+  cc2Render();
+}
+function cc2SwitchView(v, btn) {
+  cc2View = v;
+  document.querySelectorAll('.cc2-vtab').forEach(t => t.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('cc2-dayView').style.display   = v==='day'   ? 'flex'  : 'none';
+  document.getElementById('cc2-weekView').style.display  = v==='week'  ? 'block' : 'none';
+  document.getElementById('cc2-monthView').style.display = v==='month' ? 'block' : 'none';
+  cc2Render();
+}
+function cc2SwitchShift(s) {
+  cc2Shift = s;
+  document.getElementById('cc2-btnAm').classList.toggle('active', s==='morning');
+  document.getElementById('cc2-btnPm').classList.toggle('active', s==='afternoon');
+  if(cc2View==='day') cc2RenderDay();
+}
+
+/* ── DAY VIEW ── */
+function cc2RenderDay() {
+  const assignment = cc2GetAssignment(cc2Date, cc2Shift);
+  const assigned   = cc2GetAssignedSet(cc2Date, cc2Shift);
+  const unassigned = CC2_STAFF.filter(s => !assigned.has(s.id));
+
+  const poolList = document.getElementById('cc2-poolList');
+  const badge    = document.getElementById('cc2-poolBadge');
+  if(unassigned.length === 0) {
+    poolList.innerHTML = '<div class="cc2-pool-done">✓ Đã phân bổ đủ 10/10</div>';
+    badge.textContent = '0'; badge.className = 'cc2-pool-badge done';
+  } else {
+    badge.textContent = unassigned.length; badge.className = 'cc2-pool-badge';
+    poolList.innerHTML = unassigned.map(s => `
+      <div class="cc2-scard" draggable="true" data-sid="${s.id}"
+           ondragstart="cc2DragStart(event,'${s.id}',null)"
+           ondragend="cc2DragEnd(event)">
+        <div class="cc2-sav">${s.avatar}</div>
+        <span>${s.name}</span>
+      </div>`).join('');
+  }
+
+  const grid = document.getElementById('cc2-channelGrid');
+  grid.innerHTML = CC2_CHANNELS.map(ch => {
+    const ids = assignment[ch.id] || [];
+    const chips = ids.map(sid => {
+      const s = CC2_STAFF.find(x => x.id===sid);
+      return s ? `<div class="cc2-chip" draggable="true"
+                       ondragstart="cc2DragStart(event,'${s.id}','${ch.id}')"
+                       ondragend="cc2DragEnd(event)">
+        <div class="cc2-chip-av">${s.avatar}</div>
+        <span>${s.name}</span>
+        <button class="cc2-chip-rm" onclick="event.stopPropagation();cc2Remove('${ch.id}','${s.id}')">×</button>
+      </div>` : '';
+    }).join('');
+    return `<div class="cc2-ch-card" ondragover="cc2DragOver(event)" ondragleave="cc2DragLeave(event)" ondrop="cc2Drop(event,'${ch.id}')">
+      <div class="cc2-ch-hdr">
+        <div class="cc2-ch-bar" style="background:${ch.color}"></div>
+        <span class="cc2-ch-name">${ch.name}</span>
+        <span class="cc2-ch-cnt ${ids.length?'has-staff':''}">${ids.length}</span>
+      </div>
+      <div class="cc2-ch-body ${ids.length===0?'empty':''}">${chips}</div>
+    </div>`;
+  }).join('');
+
+  const emptyCount = CC2_CHANNELS.filter(ch => (assignment[ch.id]||[]).length===0).length;
+  document.getElementById('cc2-sumAssigned').textContent   = assigned.size;
+  document.getElementById('cc2-sumUnassigned').textContent = CC2_STAFF.length - assigned.size;
+  document.getElementById('cc2-sumEmpty').textContent      = emptyCount;
+  const st = document.getElementById('cc2-sumStatus');
+  st.innerHTML = (assigned.size===10 && emptyCount===0)
+    ? '<span style="color:var(--grn600)">✓ Hoàn tất ca</span>'
+    : '<span style="color:var(--yel600)">⚠ Chưa hoàn tất</span>';
+}
+
+/* ── DRAG & DROP ── */
+function cc2DragStart(e, sid, fromCh) {
+  cc2DragId = sid; cc2DragSrc = fromCh;
+  e.target.closest('[draggable]').classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+function cc2DragEnd(e) {
+  e.target.closest('[draggable]')?.classList.remove('dragging');
+  cc2DragId = null; cc2DragSrc = null;
+  document.querySelectorAll('.cc2-ch-card').forEach(c => c.classList.remove('drag-over'));
+}
+function cc2DragOver(e) { e.preventDefault(); e.currentTarget.classList.add('drag-over'); }
+function cc2DragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
+function cc2Drop(e, chId) {
+  e.preventDefault(); e.currentTarget.classList.remove('drag-over');
+  if(!cc2DragId) return;
+  const a = cc2GetAssignment(cc2Date, cc2Shift);
+  if(cc2DragSrc && a[cc2DragSrc]) a[cc2DragSrc] = a[cc2DragSrc].filter(id => id!==cc2DragId);
+  if(!a[chId]) a[chId] = [];
+  if(!a[chId].includes(cc2DragId)) a[chId].push(cc2DragId);
+  cc2Save(); cc2RenderDay();
+}
+function cc2Remove(chId, sid) {
+  const a = cc2GetAssignment(cc2Date, cc2Shift);
+  if(a[chId]) a[chId] = a[chId].filter(id => id!==sid);
+  cc2Save(); cc2RenderDay();
+}
+
+/* ── WEEK VIEW ── */
+function cc2WeekNum(d) {
+  const onejan = new Date(d.getFullYear(),0,1);
+  return Math.ceil((((d-onejan)/86400000)+onejan.getDay()+1)/7);
+}
+function cc2RenderWeek() {
+  const start = new Date(cc2Date);
+  const dow = start.getDay();
+  start.setDate(start.getDate()-(dow===0?6:dow-1));
+  const days = [];
+  for(let i=0;i<7;i++){const d=new Date(start);d.setDate(d.getDate()+i);days.push(d);}
+
+  let html = '<tr><th></th>';
+  const todayKey = cc2DateKey(new Date(2026,2,27));
+  days.forEach(d => {
+    const isToday = cc2DateKey(d) === todayKey;
+    html += `<th style="${isToday?'color:var(--p600);background:var(--p50)':''}">${CC2_WDAYS_SHORT[d.getDay()]}<br><small>${d.getDate()}/${d.getMonth()+1}</small></th>`;
+  });
+  html += '</tr>';
+
+  ['morning','afternoon'].forEach(shift => {
+    html += `<tr><td class="cc2-shift-lbl">${shift==='morning'?'☀️ Sáng':'🌙 C.Tối'}</td>`;
+    days.forEach(d => {
+      if(d.getDay()===0){html+='<td class="cc2-wk-cell off">OFF</td>';return;}
+      const assigned = cc2GetAssignedSet(d, shift);
+      const a = cc2GetAssignment(d, shift);
+      const usedCh = CC2_CHANNELS.filter(ch=>(a[ch.id]||[]).length>0).length;
+      let cls = 'cc2-wk-cell '; let icon='',text='';
+      if(assigned.size===0){cls+='empty';icon='—';text='Chưa chia';}
+      else if(assigned.size===CC2_STAFF.length){cls+='done';icon='✓';text=`${assigned.size}/10 · ${usedCh} khu vực`;}
+      else{cls+='partial';icon='⚠';text=`${assigned.size}/10 · ${usedCh} khu vực`;}
+      html += `<td class="${cls}" onclick="cc2GoToDay(${d.getTime()},'${shift}')">
+        <span class="cc2-wk-icon">${icon}</span>
+        <span class="cc2-wk-text">${text}</span>
+      </td>`;
+    });
+    html += '</tr>';
+  });
+
+  document.getElementById('cc2-weekTable').innerHTML = html;
+  const end = new Date(start); end.setDate(end.getDate()+6);
+  document.getElementById('cc2-dateLabel').textContent =
+    `Tuần ${cc2WeekNum(start)}: ${start.getDate()}/${start.getMonth()+1} — ${end.getDate()}/${end.getMonth()+1}/${end.getFullYear()}`;
+}
+function cc2GoToDay(ts, shift) {
+  cc2Date = new Date(ts); cc2Shift = shift;
+  document.getElementById('cc2-btnAm').classList.toggle('active', shift==='morning');
+  document.getElementById('cc2-btnPm').classList.toggle('active', shift==='afternoon');
+  document.querySelectorAll('.cc2-vtab').forEach((t,i)=>t.classList.toggle('active',i===0));
+  document.getElementById('cc2-dayView').style.display='flex';
+  document.getElementById('cc2-weekView').style.display='none';
+  document.getElementById('cc2-monthView').style.display='none';
+  cc2View='day'; cc2RenderDay();
+  document.getElementById('cc2-dateLabel').textContent = cc2FormatDate(cc2Date);
+}
+
+/* ── MONTH VIEW ── */
+function cc2RenderMonth() {
+  const year = cc2Date.getFullYear(), month = cc2Date.getMonth();
+  document.getElementById('cc2-dateLabel').textContent = `Tháng ${month+1} / ${year}`;
+  const first = new Date(year,month,1);
+  const last  = new Date(year,month+1,0);
+  let dow = first.getDay(); dow = dow===0?6:dow-1;
+
+  let html = ['T2','T3','T4','T5','T6','T7','CN'].map(d=>`<div class="cc2-mg-hdr">${d}</div>`).join('');
+  for(let i=0;i<dow;i++) html+='<div class="cc2-mg-day mg-empty"></div>';
+
+  const todayKey = cc2DateKey(new Date(2026,2,27));
+  for(let d=1;d<=last.getDate();d++){
+    const dt = new Date(year,month,d);
+    const isToday = cc2DateKey(dt)===todayKey;
+    const isSun = dt.getDay()===0;
+    let dots='';
+    if(isSun){dots='<span style="font-size:9px;color:var(--n300)">OFF</span>';}
+    else{
+      ['morning','afternoon'].forEach(sh=>{
+        const a=cc2GetAssignedSet(dt,sh);
+        const cls=a.size===10?'done':a.size>0?'partial':'empty';
+        dots+=`<span class="cc2-dot ${cls}"></span>`;
+      });
+    }
+    html+=`<div class="cc2-mg-day${isToday?' today':''}" onclick="cc2GoToDay(${dt.getTime()},'morning')">
+      <span class="cc2-mg-num">${d}</span>
+      <div class="cc2-mg-dots">${dots}</div>
+    </div>`;
+  }
+  const total=dow+last.getDate(); const rem=total%7;
+  if(rem>0) for(let j=0;j<7-rem;j++) html+='<div class="cc2-mg-day mg-empty"></div>';
+  document.getElementById('cc2-monthGrid').innerHTML = html;
+}
+
+/* ── ACTIONS ── */
+function cc2SaveAssignment() {
+  cc2Save();
+  const btn = document.getElementById('cc2-savebtn');
+  const orig = btn.innerHTML;
+  btn.innerHTML='✓ Đã lưu!'; btn.style.background='var(--grn600)';
+  setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';},1500);
+}
+function cc2ApplyToWeek() {
+  const src = cc2GetAssignment(cc2Date, cc2Shift);
+  const start = new Date(cc2Date);
+  const dow = start.getDay();
+  start.setDate(start.getDate()-(dow===0?6:dow-1));
+  let count=0;
+  for(let i=0;i<7;i++){
+    const d=new Date(start); d.setDate(d.getDate()+i);
+    if(d.getDay()===0) continue;
+    if(cc2DateKey(d)===cc2DateKey(cc2Date)) continue;
+    const key=cc2DateKey(d);
+    if(!cc2Assignments[key]) cc2Assignments[key]={};
+    cc2Assignments[key][cc2Shift]=JSON.parse(JSON.stringify(src));
+    count++;
+  }
+  cc2Save();
+  alert(`Đã áp dụng phân bổ ca ${cc2Shift==='morning'?'Sáng':'Chiều-Tối'} cho ${count} ngày còn lại trong tuần (T2-T7).`);
+  cc2Render();
+}
+
+function cc2Render() {
+  if(cc2View==='day'){
+    document.getElementById('cc2-dateLabel').textContent = cc2FormatDate(cc2Date);
+    cc2RenderDay();
+  } else if(cc2View==='week') cc2RenderWeek();
+  else cc2RenderMonth();
+}
+
+(function(){
+  if(document.getElementById('cc2-dayView')) cc2Render();
+})();
+
 function tkFilterReset(){
   document.getElementById('tk-search').value = '';
-  ['fsel-status','fsel-priority','fsel-channel','fsel-agent','fsel-date','fsel-school','fsel-product'].forEach(function(id){
+  ['fsel-status','fsel-priority','fsel-channel','fsel-agent','fsel-school','fsel-product'].forEach(function(id){
     document.getElementById(id).value = '';
     document.getElementById(id).classList.remove('active');
   });
+  _tkDateState = {mode:'', from:'', to:''};
+  document.getElementById('fsel-date-from').value = '';
+  document.getElementById('fsel-date-to').value = '';
+  _tkDateSyncUI();
   _tkChips = {sla:false, unassigned:false, mine:false};
   ['fc-sla','fc-unassigned','fc-mine'].forEach(function(id){
     var el = document.getElementById(id);
