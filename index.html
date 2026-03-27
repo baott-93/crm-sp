@@ -533,6 +533,88 @@ a{color:inherit;text-decoration:none}
 .bcard-prio.medium{background:var(--p50);color:var(--p700)}
 .bcard-prio.low{background:var(--n100);color:var(--n500)}
 
+/* ══ TICKET FILTER BAR ══ */
+.tk-filter-bar{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  background:var(--n0);border:1px solid var(--n200);border-radius:var(--rl);
+  padding:10px 14px;margin-bottom:14px;
+}
+.tk-fsearch{
+  display:flex;align-items:center;gap:6px;
+  background:var(--n50);border:1.5px solid var(--n200);border-radius:8px;
+  padding:5px 10px;transition:border-color .15s;
+}
+.tk-fsearch:focus-within{border-color:var(--p400)}
+.tk-fsearch input{
+  border:none;background:none;outline:none;font-size:12px;
+  color:var(--n800);font-family:var(--font);width:150px;
+}
+.tk-fsearch input::placeholder{color:var(--n400)}
+.tk-fchip{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 11px;border-radius:20px;font-size:11px;font-weight:600;
+  border:1.5px solid var(--n200);background:var(--n0);color:var(--n500);
+  cursor:pointer;transition:all .15s;white-space:nowrap;user-select:none;
+}
+.tk-fchip:hover{border-color:var(--p300);color:var(--p600)}
+.tk-fchip.active{border-color:var(--p400);background:var(--p50);color:var(--p600)}
+.tk-fchip.fc-sla{border-color:var(--red200);color:var(--red400)}
+.tk-fchip.fc-sla:hover,.tk-fchip.fc-sla.active{border-color:var(--red400);background:var(--red50);color:var(--red600)}
+.tk-fchip.fc-unassigned:hover,.tk-fchip.fc-unassigned.active{border-color:var(--yel400);background:var(--yel50);color:var(--yel600)}
+.tk-fchip.fc-mine:hover,.tk-fchip.fc-mine.active{border-color:var(--grn400);background:var(--grn50);color:var(--grn600)}
+.tk-fdivider{width:1px;height:18px;background:var(--n200);flex-shrink:0;margin:0 2px}
+.tk-fsel{
+  padding:5px 24px 5px 10px;border-radius:8px;font-size:12px;font-weight:500;
+  border:1.5px solid var(--n200);background:var(--n0);color:var(--n600);
+  cursor:pointer;font-family:var(--font);outline:none;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238C97A8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;
+  transition:border-color .15s;white-space:nowrap;
+}
+.tk-fsel:focus{border-color:var(--p400)}
+.tk-fsel.active{border-color:var(--p400);color:var(--p600);background-color:var(--p50)}
+.tk-fcount{
+  font-size:11px;color:var(--n400);white-space:nowrap;padding:0 2px;
+}
+.tk-fcount b{color:var(--p600)}
+.tk-freset{
+  padding:4px 10px;border-radius:8px;
+  font-size:11px;font-weight:500;border:none;background:none;
+  color:var(--n400);cursor:pointer;transition:color .15s;white-space:nowrap;
+}
+.tk-freset:hover{color:var(--red600)}
+.tk-col-empty{
+  text-align:center;padding:24px 12px;font-size:11px;color:var(--n400);display:none;
+}
+/* ══ TICKET FILTER — ADVANCED SECTION ══ */
+.tk-fadv-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:5px 11px;border-radius:8px;font-size:12px;font-weight:500;
+  border:1.5px solid var(--n200);background:var(--n0);color:var(--n500);
+  cursor:pointer;font-family:var(--font);transition:all .15s;white-space:nowrap;
+  flex-shrink:0;
+}
+.tk-fadv-btn svg{transition:transform .2s}
+.tk-fadv-btn:hover{border-color:var(--n300);color:var(--n700)}
+.tk-fadv-btn.open svg{transform:rotate(180deg)}
+.tk-fadv-btn.has-active{border-color:var(--pur400);color:var(--pur600);background:var(--pur50)}
+.tk-fadv-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:16px;height:16px;padding:0 3px;border-radius:8px;
+  background:var(--pur400);color:#fff;font-size:9px;font-weight:700;
+}
+.tk-fadv-row{
+  display:none;align-items:center;gap:8px;flex-wrap:wrap;
+  width:100%;padding-top:9px;margin-top:5px;
+  border-top:1px solid var(--n100);
+}
+.tk-fadv-row.open{display:flex}
+.tk-fadv-lbl{
+  font-size:10px;font-weight:700;letter-spacing:.07em;
+  color:var(--n400);text-transform:uppercase;white-space:nowrap;flex-shrink:0;
+}
+
 /* ══ CALENDAR VIEW ══ */
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr)}
 .cal-hdr .cal-day-lbl{
@@ -1084,6 +1166,104 @@ a{color:inherit;text-decoration:none}
         <div class="mc"><div class="mc-icon green">✅</div><div class="mc-body"><div class="mc-lbl">Đã đóng hôm nay</div><div class="mc-val g">44</div></div></div>
       </div>
 
+      <!-- ── FILTER BAR ── -->
+      <div class="tk-filter-bar" id="tk-filter-bar">
+        <!-- ── ROW 1: Main filters ── -->
+        <!-- Search -->
+        <div class="tk-fsearch">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="#8C97A8" stroke-width="1.4"/><path d="M9 9l2.5 2.5" stroke="#8C97A8" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <input type="text" id="tk-search" placeholder="Tìm mã, tiêu đề..." oninput="tkFilter()">
+        </div>
+        <div class="tk-fdivider"></div>
+        <!-- 1. Thời gian -->
+        <select class="tk-fsel" id="fsel-date" onchange="tkFilter()" title="Lọc theo thời gian">
+          <option value="">Thời gian</option>
+          <option value="today">Hôm nay</option>
+          <option value="yesterday">Hôm qua</option>
+          <option value="week">7 ngày qua</option>
+          <option value="month">Tháng này</option>
+        </select>
+        <!-- 2. SLA vi phạm chip -->
+        <div class="tk-fchip fc-sla" id="fc-sla" onclick="tkChip('sla',this)" title="Chỉ hiện ticket đang vi phạm SLA">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 3v2.5l1.5 1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          SLA vi phạm
+        </div>
+        <!-- 3. Sản phẩm -->
+        <select class="tk-fsel" id="fsel-product" onchange="tkFilter()" title="Lọc theo sản phẩm">
+          <option value="">Sản phẩm</option>
+          <option value="elearning">Học trực tuyến</option>
+          <option value="exam">Thi thử</option>
+          <option value="mobile">App Mobile</option>
+          <option value="account">Tài khoản / CMS</option>
+        </select>
+        <!-- 4. Nguồn (Kênh) -->
+        <select class="tk-fsel" id="fsel-channel" onchange="tkFilter()" title="Lọc theo kênh tiếp nhận">
+          <option value="">Nguồn</option>
+          <option value="zalo">Zalo</option>
+          <option value="chat">Chat SP</option>
+          <option value="phone">Tổng đài</option>
+          <option value="zalo-group">Zalo Nhóm</option>
+          <option value="internal">Nội bộ</option>
+        </select>
+        <!-- 5. Trường -->
+        <select class="tk-fsel" id="fsel-school" onchange="tkFilter()" title="Lọc theo trường học">
+          <option value="">Trường</option>
+          <option value="thcs-tran-phu">THCS Trần Phú</option>
+          <option value="thpt-nguyen-du">THPT Nguyễn Du</option>
+          <option value="thpt-le-hong-phong">THPT Lê Hồng Phong</option>
+          <option value="other">Trường khác</option>
+        </select>
+        <!-- 6. Trạng thái -->
+        <select class="tk-fsel" id="fsel-status" onchange="tkFilter()" title="Lọc theo trạng thái">
+          <option value="">Trạng thái</option>
+          <option value="new">Mới</option>
+          <option value="progress">Đang xử lý</option>
+          <option value="pending">Pending</option>
+          <option value="resolved">Đã đóng</option>
+        </select>
+        <!-- 7. Agent -->
+        <select class="tk-fsel" id="fsel-agent" onchange="tkFilter()" title="Lọc theo agent">
+          <option value="">Agent</option>
+          <option value="nguyen-hoa">Nguyễn Hoa</option>
+          <option value="tran-minh">Trần Minh</option>
+          <option value="le-thy">Lê Thy</option>
+          <option value="pham-tuan">Phạm Tuấn</option>
+          <option value="unassigned">Chưa gán</option>
+        </select>
+        <div class="tk-fdivider"></div>
+        <!-- Advanced toggle -->
+        <button class="tk-fadv-btn" id="tk-fadv-btn" onclick="tkAdvToggle()" title="Bộ lọc nâng cao">
+          Nâng cao
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <!-- count + reset -->
+        <span class="tk-fcount" id="tk-fcount"></span>
+        <button class="tk-freset" id="tk-freset" onclick="tkFilterReset()" style="display:none">✕ Xoá lọc</button>
+
+        <!-- ── ROW 2: Advanced filters (collapsible) ── -->
+        <div class="tk-fadv-row" id="tk-fadv-row">
+          <span class="tk-fadv-lbl">Nâng cao</span>
+          <!-- Ưu tiên -->
+          <select class="tk-fsel" id="fsel-priority" onchange="tkFilter()" title="Lọc theo độ ưu tiên">
+            <option value="">Ưu tiên</option>
+            <option value="critical">Critical</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+          <!-- Chưa gán -->
+          <div class="tk-fchip fc-unassigned" id="fc-unassigned" onclick="tkChip('unassigned',this)" title="Chỉ hiện ticket chưa có agent">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="3.5" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 9.5c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Chưa gán
+          </div>
+          <!-- Của tôi -->
+          <div class="tk-fchip fc-mine" id="fc-mine" onclick="tkChip('mine',this)" title="Chỉ hiện ticket của Nguyễn Hoa">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="3.5" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 9.5c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Của tôi
+          </div>
+        </div>
+      </div>
+
       <!-- View switcher toolbar -->
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px;flex-wrap:wrap">
         <div style="font-size:13px;font-weight:600;color:var(--n700)">Ticket hôm nay · <span style="color:var(--n400);font-weight:400">87 ticket · 18/03/2026</span></div>
@@ -1095,10 +1275,6 @@ a{color:inherit;text-decoration:none}
           <button class="tvb" onclick="tkView('list',this)" title="List">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="2" width="13" height="2" rx="1" fill="currentColor"/><rect x="1" y="6.5" width="13" height="2" rx="1" fill="currentColor" opacity=".7"/><rect x="1" y="11" width="13" height="2" rx="1" fill="currentColor" opacity=".5"/></svg>
             List
-          </button>
-          <button class="tvb" onclick="tkView('calendar',this)" title="Calendar">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1" y="2.5" width="13" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M1 6h13M5 1v3M10 1v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            Lịch
           </button>
         </div>
       </div>
@@ -1114,19 +1290,19 @@ a{color:inherit;text-decoration:none}
               <span class="board-col-cnt">12</span>
             </div>
             <div class="board-cards">
-              <div class="bcard breach">
+              <div class="bcard breach" data-status="new" data-priority="critical" data-channel="zalo" data-agent="nguyen-hoa" data-sla="breach" data-school="thcs-tran-phu" data-product="account" data-date="today">
                 <div class="bcard-id">TK-0089</div>
                 <div class="bcard-title">Lỗi đăng nhập GV THCS Trần Phú</div>
                 <div class="bcard-meta"><span class="chtag ch-z">Zalo</span><span class="schip s-breach" style="margin-left:auto">SLA!</span></div>
                 <div class="bcard-foot"><div class="bcard-av" style="background:var(--p100);color:var(--p700)">NH</div><span class="bcard-agent">Nguyễn Hoa</span><span class="bcard-prio critical">Critical</span></div>
               </div>
-              <div class="bcard">
+              <div class="bcard" data-status="new" data-priority="medium" data-channel="chat" data-agent="unassigned" data-sla="ok" data-school="thpt-le-hong-phong" data-product="elearning" data-date="today">
                 <div class="bcard-id">TK-0097</div>
                 <div class="bcard-title">Video bài giảng bị giật lớp 11</div>
                 <div class="bcard-meta"><span class="chtag ch-p">Chat SP</span><span class="schip s-ok" style="margin-left:auto">4h 10p</span></div>
                 <div class="bcard-foot"><div class="bcard-av" style="background:var(--n100);color:var(--n600)">—</div><span class="bcard-agent" style="color:var(--red600)">Chưa gán</span><span class="bcard-prio medium">Medium</span></div>
               </div>
-              <div class="bcard">
+              <div class="bcard" data-status="new" data-priority="low" data-channel="zalo" data-agent="pham-tuan" data-sla="ok" data-school="other" data-product="elearning" data-date="today">
                 <div class="bcard-id">TK-0096</div>
                 <div class="bcard-title">Hỏi về chính sách hoàn phí</div>
                 <div class="bcard-meta"><span class="chtag ch-z">Zalo</span><span class="schip s-ok" style="margin-left:auto">4h</span></div>
@@ -1142,19 +1318,19 @@ a{color:inherit;text-decoration:none}
               <span class="board-col-cnt">23</span>
             </div>
             <div class="board-cards">
-              <div class="bcard">
+              <div class="bcard" data-status="progress" data-priority="high" data-channel="chat" data-agent="tran-minh" data-sla="warn" data-school="thcs-tran-phu" data-product="exam" data-date="today">
                 <div class="bcard-id">TK-0091</div>
                 <div class="bcard-title">Không tải được đề thi kỳ 2 lớp 10</div>
                 <div class="bcard-meta"><span class="chtag ch-p">Chat SP</span><span class="schip s-warn" style="margin-left:auto">1h 20p</span></div>
                 <div class="bcard-foot"><div class="bcard-av" style="background:var(--yel50);color:var(--yel600)">TM</div><span class="bcard-agent">Trần Minh</span><span class="bcard-prio high">High</span></div>
               </div>
-              <div class="bcard">
+              <div class="bcard" data-status="progress" data-priority="high" data-channel="chat" data-agent="le-thy" data-sla="warn" data-school="thpt-nguyen-du" data-product="mobile" data-date="yesterday">
                 <div class="bcard-id">TK-0088</div>
                 <div class="bcard-title">App mobile crash khi mở bài thi</div>
                 <div class="bcard-meta"><span class="chtag ch-p">Chat SP</span><span class="schip s-warn" style="margin-left:auto">2h 40p</span></div>
                 <div class="bcard-foot"><div class="bcard-av" style="background:var(--grn50);color:var(--grn600)">LT</div><span class="bcard-agent">Lê Thy</span><span class="bcard-prio high">High</span></div>
               </div>
-              <div class="bcard">
+              <div class="bcard" data-status="progress" data-priority="medium" data-channel="zalo" data-agent="nguyen-hoa" data-sla="ok" data-school="thpt-nguyen-du" data-product="exam" data-date="yesterday">
                 <div class="bcard-id">TK-0085</div>
                 <div class="bcard-title">Học sinh mất điểm sau khi nộp bài</div>
                 <div class="bcard-meta"><span class="chtag ch-z">Zalo</span><span class="schip s-ok" style="margin-left:auto">3h</span></div>
@@ -1170,13 +1346,13 @@ a{color:inherit;text-decoration:none}
               <span class="board-col-cnt">8</span>
             </div>
             <div class="board-cards">
-              <div class="bcard">
+              <div class="bcard" data-status="pending" data-priority="medium" data-channel="phone" data-agent="le-thy" data-sla="warn" data-school="thpt-le-hong-phong" data-product="elearning" data-date="week">
                 <div class="bcard-id">TK-0094</div>
                 <div class="bcard-title">Yêu cầu gia hạn gói học 3 trường</div>
                 <div class="bcard-meta"><span class="chtag ch-c">Tổng đài</span><span class="schip s-warn" style="margin-left:auto">2h</span></div>
                 <div class="bcard-foot"><div class="bcard-av" style="background:var(--grn50);color:var(--grn600)">LT</div><span class="bcard-agent">Lê Thy</span><span class="bcard-prio medium">Medium</span></div>
               </div>
-              <div class="bcard">
+              <div class="bcard" data-status="pending" data-priority="low" data-channel="internal" data-agent="pham-tuan" data-sla="ok" data-school="other" data-product="account" data-date="week">
                 <div class="bcard-id">TK-0082</div>
                 <div class="bcard-title">Cấp lại tài khoản GV sau nghỉ thai sản</div>
                 <div class="bcard-meta"><span class="chtag ch-i">Nội bộ</span><span class="schip s-ok" style="margin-left:auto">1 ngày</span></div>
@@ -1192,13 +1368,13 @@ a{color:inherit;text-decoration:none}
               <span class="board-col-cnt">44</span>
             </div>
             <div class="board-cards">
-              <div class="bcard resolved">
+              <div class="bcard resolved" data-status="resolved" data-priority="low" data-channel="zalo-group" data-agent="tran-minh" data-sla="closed" data-school="thpt-nguyen-du" data-product="exam" data-date="today">
                 <div class="bcard-id">TK-0092</div>
                 <div class="bcard-title">Lịch thi thử THPTQG đợt 2</div>
                 <div class="bcard-meta"><span class="chtag ch-zg">Zalo Nhóm</span><span class="sp sp-res" style="margin-left:auto">Closed</span></div>
                 <div class="bcard-foot"><div class="bcard-av" style="background:var(--yel50);color:var(--yel600)">TM</div><span class="bcard-agent">Trần Minh</span><span class="bcard-prio low">Low</span></div>
               </div>
-              <div class="bcard resolved">
+              <div class="bcard resolved" data-status="resolved" data-priority="low" data-channel="chat" data-agent="nguyen-hoa" data-sla="closed" data-school="thcs-tran-phu" data-product="exam" data-date="today">
                 <div class="bcard-id">TK-0090</div>
                 <div class="bcard-title">Học sinh không thấy kết quả bài nộp</div>
                 <div class="bcard-meta"><span class="chtag ch-p">Chat SP</span><span class="sp sp-res" style="margin-left:auto">Closed</span></div>
@@ -1215,87 +1391,20 @@ a{color:inherit;text-decoration:none}
           <div style="overflow-x:auto">
             <table class="tbl" style="min-width:700px">
               <thead><tr><th>Mã ticket</th><th>Tiêu đề</th><th>Kênh</th><th>Ưu tiên</th><th>Agent</th><th class="ctr">SLA còn</th><th class="ctr">Trạng thái</th></tr></thead>
-              <tbody>
-                <tr><td class="tk-id-cell">TK-2026-0089</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600">Lỗi đăng nhập GV THCS Trần Phú</td><td><span class="chtag ch-z">Zalo</span></td><td style="color:var(--red600);font-weight:700;font-size:11px">Critical</td><td style="font-size:11px">Nguyễn Hoa</td><td class="ctr"><span class="schip s-breach">Vi phạm</span></td><td class="ctr"><span class="sp sp-br">SLA!</span></td></tr>
-                <tr><td class="tk-id-cell">TK-2026-0097</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Video bài giảng bị giật lớp 11</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="color:var(--red600);font-size:11px;font-weight:600">Chưa gán</td><td class="ctr"><span class="schip s-ok">4h 10p</span></td><td class="ctr"><span class="sp sp-new">Mới</span></td></tr>
-                <tr><td class="tk-id-cell">TK-2026-0091</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Không tải được đề thi kỳ 2</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:700;font-size:11px">High</td><td style="font-size:11px">Trần Minh</td><td class="ctr"><span class="schip s-warn">1h 20p</span></td><td class="ctr"><span class="sp sp-prog">Đang xử lý</span></td></tr>
-                <tr><td class="tk-id-cell">TK-2026-0094</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Yêu cầu gia hạn gói học</td><td><span class="chtag ch-c">Tổng đài</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h</span></td><td class="ctr"><span class="sp sp-pend">Pending</span></td></tr>
-                <tr><td class="tk-id-cell">TK-2026-0088</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">App mobile crash khi mở bài thi</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:700;font-size:11px">High</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h 40p</span></td><td class="ctr"><span class="sp sp-prog">Đang xử lý</span></td></tr>
-                <tr><td class="tk-id-cell">TK-2026-0096</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Hỏi về chính sách hoàn phí</td><td><span class="chtag ch-z">Zalo</span></td><td style="font-size:11px;color:var(--n500)">Low</td><td style="font-size:11px">Phạm Tuấn</td><td class="ctr"><span class="schip s-ok">4h</span></td><td class="ctr"><span class="sp sp-new">Mới</span></td></tr>
-                <tr><td class="tk-id-cell">TK-2026-0092</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lịch thi thử THPTQG đợt 2</td><td><span class="chtag ch-zg">Zalo Nhóm</span></td><td style="font-size:11px;color:var(--n500)">Low</td><td style="font-size:11px">Trần Minh</td><td class="ctr"><span class="schip s-ok">Đã đóng</span></td><td class="ctr"><span class="sp sp-res">Closed</span></td></tr>
+              <tbody id="tk-list-body">
+                <tr data-status="new" data-priority="critical" data-channel="zalo" data-agent="nguyen-hoa" data-sla="breach" data-school="thcs-tran-phu" data-product="account" data-date="today"><td class="tk-id-cell">TK-2026-0089</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600">Lỗi đăng nhập GV THCS Trần Phú</td><td><span class="chtag ch-z">Zalo</span></td><td style="color:var(--red600);font-weight:700;font-size:11px">Critical</td><td style="font-size:11px">Nguyễn Hoa</td><td class="ctr"><span class="schip s-breach">Vi phạm</span></td><td class="ctr"><span class="sp sp-br">SLA!</span></td></tr>
+                <tr data-status="new" data-priority="medium" data-channel="chat" data-agent="unassigned" data-sla="ok" data-school="thpt-le-hong-phong" data-product="elearning" data-date="today"><td class="tk-id-cell">TK-2026-0097</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Video bài giảng bị giật lớp 11</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="color:var(--red600);font-size:11px;font-weight:600">Chưa gán</td><td class="ctr"><span class="schip s-ok">4h 10p</span></td><td class="ctr"><span class="sp sp-new">Mới</span></td></tr>
+                <tr data-status="progress" data-priority="high" data-channel="chat" data-agent="tran-minh" data-sla="warn" data-school="thcs-tran-phu" data-product="exam" data-date="today"><td class="tk-id-cell">TK-2026-0091</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500">Không tải được đề thi kỳ 2</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:700;font-size:11px">High</td><td style="font-size:11px">Trần Minh</td><td class="ctr"><span class="schip s-warn">1h 20p</span></td><td class="ctr"><span class="sp sp-prog">Đang xử lý</span></td></tr>
+                <tr data-status="pending" data-priority="medium" data-channel="phone" data-agent="le-thy" data-sla="warn" data-school="thpt-le-hong-phong" data-product="elearning" data-date="week"><td class="tk-id-cell">TK-2026-0094</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Yêu cầu gia hạn gói học</td><td><span class="chtag ch-c">Tổng đài</span></td><td style="color:var(--yel600);font-weight:600;font-size:11px">Medium</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h</span></td><td class="ctr"><span class="sp sp-pend">Pending</span></td></tr>
+                <tr data-status="progress" data-priority="high" data-channel="chat" data-agent="le-thy" data-sla="warn" data-school="thpt-nguyen-du" data-product="mobile" data-date="yesterday"><td class="tk-id-cell">TK-2026-0088</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">App mobile crash khi mở bài thi</td><td><span class="chtag ch-p">Chat SP</span></td><td style="color:var(--yel600);font-weight:700;font-size:11px">High</td><td style="font-size:11px">Lê Thy</td><td class="ctr"><span class="schip s-warn">2h 40p</span></td><td class="ctr"><span class="sp sp-prog">Đang xử lý</span></td></tr>
+                <tr data-status="new" data-priority="low" data-channel="zalo" data-agent="pham-tuan" data-sla="ok" data-school="other" data-product="elearning" data-date="today"><td class="tk-id-cell">TK-2026-0096</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Hỏi về chính sách hoàn phí</td><td><span class="chtag ch-z">Zalo</span></td><td style="font-size:11px;color:var(--n500)">Low</td><td style="font-size:11px">Phạm Tuấn</td><td class="ctr"><span class="schip s-ok">4h</span></td><td class="ctr"><span class="sp sp-new">Mới</span></td></tr>
+                <tr data-status="resolved" data-priority="low" data-channel="zalo-group" data-agent="tran-minh" data-sla="closed" data-school="thpt-nguyen-du" data-product="exam" data-date="today"><td class="tk-id-cell">TK-2026-0092</td><td style="max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lịch thi thử THPTQG đợt 2</td><td><span class="chtag ch-zg">Zalo Nhóm</span></td><td style="font-size:11px;color:var(--n500)">Low</td><td style="font-size:11px">Trần Minh</td><td class="ctr"><span class="schip s-ok">Đã đóng</span></td><td class="ctr"><span class="sp sp-res">Closed</span></td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <!-- ── CALENDAR VIEW ── -->
-      <div id="tk-calendar" class="tk-vw" style="display:none">
-        <div class="card" style="padding:0;overflow:hidden">
-          <!-- Calendar header -->
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--n100)">
-            <div style="display:flex;align-items:center;gap:10px">
-              <button class="tvb" style="padding:5px 10px" onclick="">&#8249;</button>
-              <span style="font-size:15px;font-weight:700;color:var(--n800)">Tháng 3, 2026</span>
-              <button class="tvb" style="padding:5px 10px" onclick="">&#8250;</button>
-            </div>
-            <button class="tvb active" style="font-size:11px">Hôm nay</button>
-          </div>
-          <!-- Day labels -->
-          <div class="cal-grid cal-hdr">
-            <div class="cal-day-lbl">T2</div><div class="cal-day-lbl">T3</div><div class="cal-day-lbl">T4</div>
-            <div class="cal-day-lbl">T5</div><div class="cal-day-lbl">T6</div>
-            <div class="cal-day-lbl" style="color:var(--n300)">T7</div><div class="cal-day-lbl" style="color:var(--n300)">CN</div>
-          </div>
-          <!-- Calendar cells -->
-          <div class="cal-grid cal-body">
-            <!-- Week 1: 2–8/3 -->
-            <div class="cal-cell"><div class="cal-num">2</div></div>
-            <div class="cal-cell"><div class="cal-num">3</div></div>
-            <div class="cal-cell"><div class="cal-num">4</div></div>
-            <div class="cal-cell"><div class="cal-num">5</div></div>
-            <div class="cal-cell"><div class="cal-num">6</div></div>
-            <div class="cal-cell off"><div class="cal-num">7</div></div>
-            <div class="cal-cell off"><div class="cal-num">8</div></div>
-            <!-- Week 2: 9–15/3 -->
-            <div class="cal-cell"><div class="cal-num">9</div><div class="cal-evt grn">TK-0071 · Resolved</div></div>
-            <div class="cal-cell"><div class="cal-num">10</div></div>
-            <div class="cal-cell"><div class="cal-num">11</div><div class="cal-evt yel">TK-0075 · Pending</div><div class="cal-evt blue">TK-0076 · Mới</div></div>
-            <div class="cal-cell"><div class="cal-num">12</div></div>
-            <div class="cal-cell"><div class="cal-num">13</div><div class="cal-evt red">TK-0080 · SLA!</div></div>
-            <div class="cal-cell off"><div class="cal-num">14</div></div>
-            <div class="cal-cell off"><div class="cal-num">15</div></div>
-            <!-- Week 3: 16–22/3 -->
-            <div class="cal-cell"><div class="cal-num">16</div><div class="cal-evt blue">TK-0082 · Mới</div></div>
-            <div class="cal-cell"><div class="cal-num">17</div><div class="cal-evt yel">TK-0085 · In-Progress</div></div>
-            <div class="cal-cell today"><div class="cal-num today-num">18</div><div class="cal-evt red">TK-0089 · SLA!</div><div class="cal-evt yel">TK-0091 · In-Progress</div><div class="cal-evt blue">+5 ticket</div></div>
-            <div class="cal-cell"><div class="cal-num">19</div></div>
-            <div class="cal-cell"><div class="cal-num">20</div></div>
-            <div class="cal-cell off"><div class="cal-num">21</div></div>
-            <div class="cal-cell off"><div class="cal-num">22</div></div>
-            <!-- Week 4: 23–29/3 -->
-            <div class="cal-cell"><div class="cal-num">23</div></div>
-            <div class="cal-cell"><div class="cal-num">24</div></div>
-            <div class="cal-cell"><div class="cal-num">25</div></div>
-            <div class="cal-cell"><div class="cal-num">26</div></div>
-            <div class="cal-cell"><div class="cal-num">27</div></div>
-            <div class="cal-cell off"><div class="cal-num">28</div></div>
-            <div class="cal-cell off"><div class="cal-num">29</div></div>
-            <!-- Week 5: 30–31/3 -->
-            <div class="cal-cell"><div class="cal-num">30</div></div>
-            <div class="cal-cell"><div class="cal-num">31</div></div>
-            <div class="cal-cell empty"></div><div class="cal-cell empty"></div>
-            <div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell empty"></div>
-          </div>
-        </div>
-        <!-- Legend -->
-        <div style="display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;padding:0 4px">
-          <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--n500)"><div style="width:10px;height:10px;border-radius:3px;background:var(--red50);border:1.5px solid var(--red400)"></div>SLA vi phạm</div>
-          <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--n500)"><div style="width:10px;height:10px;border-radius:3px;background:var(--yel50);border:1.5px solid var(--yel400)"></div>Đang xử lý / Pending</div>
-          <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--n500)"><div style="width:10px;height:10px;border-radius:3px;background:var(--p50);border:1.5px solid var(--p400)"></div>Mới</div>
-          <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--n500)"><div style="width:10px;height:10px;border-radius:3px;background:var(--grn50);border:1.5px solid var(--grn400)"></div>Resolved</div>
-        </div>
-      </div>
     </div><!-- /tickets -->
 
     <!-- ══════ VIEW: CA TRỰC ══════ -->
@@ -1942,7 +2051,7 @@ a{color:inherit;text-decoration:none}
             <div class="smap-v-ico">📋</div>
             <div>
               <div class="smap-v-name">Quản lý Ticket</div>
-              <div class="smap-v-desc">3 chế độ xem: Board (Kanban), List (bảng), Calendar — Metric tổng hợp + Modal tạo ticket</div>
+              <div class="smap-v-desc">2 chế độ xem: Board (Kanban), List (bảng) — Metric tổng hợp + Modal tạo ticket</div>
             </div>
             <span class="pill pg smap-v-status">Hoàn thành</span>
             <span class="smap-v-goto">Đi tới →</span>
@@ -2499,7 +2608,7 @@ agents.forEach(function(a){
 <script>
 var _tkN = 97;
 function tkView(type, el){
-  document.querySelectorAll('#tk-board,#tk-list,#tk-calendar').forEach(function(v){v.style.display='none'});
+  document.querySelectorAll('#tk-board,#tk-list').forEach(function(v){v.style.display='none'});
   document.getElementById('tk-'+type).style.display='';
   document.querySelectorAll('#tk-view-btns .tvb').forEach(function(b){b.classList.remove('active')});
   el.classList.add('active');
@@ -2584,6 +2693,165 @@ function resetCreate(){
 var _style = document.createElement('style');
 _style.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
 document.head.appendChild(_style);
+
+/* ── TICKET FILTER ── */
+var _tkChips = {sla:false, unassigned:false, mine:false};
+
+function tkChip(type, el){
+  _tkChips[type] = !_tkChips[type];
+  el.classList.toggle('active', _tkChips[type]);
+  // mine/unassigned mutually exclusive
+  if(type === 'mine' && _tkChips[type]){
+    _tkChips.unassigned = false;
+    var u = document.getElementById('fc-unassigned');
+    if(u) u.classList.remove('active');
+  } else if(type === 'unassigned' && _tkChips[type]){
+    _tkChips.mine = false;
+    var m = document.getElementById('fc-mine');
+    if(m) m.classList.remove('active');
+  }
+  // Auto-open advanced row when advanced chip activated
+  if((type === 'mine' || type === 'unassigned') && _tkChips[type]){
+    document.getElementById('tk-fadv-row').classList.add('open');
+    document.getElementById('tk-fadv-btn').classList.add('open');
+  }
+  tkFilter();
+}
+
+function tkAdvToggle(){
+  var row = document.getElementById('tk-fadv-row');
+  var btn = document.getElementById('tk-fadv-btn');
+  var isOpen = row.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  tkUpdateAdvBtn();
+}
+
+function tkUpdateAdvBtn(){
+  var btn = document.getElementById('tk-fadv-btn');
+  var hasAdv = _tkChips.unassigned || _tkChips.mine ||
+               !!document.getElementById('fsel-priority').value;
+  btn.classList.toggle('has-active', hasAdv);
+  // show badge count
+  var old = btn.querySelector('.tk-fadv-badge');
+  if(old) old.remove();
+  if(hasAdv){
+    var n = (_tkChips.unassigned?1:0)+(_tkChips.mine?1:0)+(document.getElementById('fsel-priority').value?1:0);
+    var badge = document.createElement('span');
+    badge.className = 'tk-fadv-badge';
+    badge.textContent = n;
+    btn.insertBefore(badge, btn.querySelector('svg'));
+  }
+}
+
+function tkFilter(){
+  var q      = (document.getElementById('tk-search').value || '').toLowerCase().trim();
+  var status = document.getElementById('fsel-status').value;
+  var prio   = document.getElementById('fsel-priority').value;
+  var ch     = document.getElementById('fsel-channel').value;
+  var agent  = document.getElementById('fsel-agent').value;
+  var date   = document.getElementById('fsel-date').value;
+  var school = document.getElementById('fsel-school').value;
+  var product= document.getElementById('fsel-product').value;
+  var sla    = _tkChips.sla;
+  var unassigned = _tkChips.unassigned;
+  var mine   = _tkChips.mine;
+
+  var hasFilter = q || status || prio || ch || agent || date || school || product || sla || unassigned || mine;
+  document.getElementById('tk-freset').style.display = hasFilter ? '' : 'none';
+
+  // Update dropdown highlights
+  ['fsel-status','fsel-priority','fsel-channel','fsel-agent','fsel-date','fsel-school','fsel-product'].forEach(function(id){
+    var sel = document.getElementById(id);
+    sel.classList.toggle('active', !!sel.value);
+  });
+  tkUpdateAdvBtn();
+
+  var total = 0;
+
+  // Filter board cards
+  document.querySelectorAll('#tk-board .bcard').forEach(function(card){
+    var show = _tkMatch(card.dataset, card, q, status, prio, ch, agent, date, school, product, sla, unassigned, mine);
+    card.style.display = show ? '' : 'none';
+    if(show) total++;
+  });
+
+  // Update board column empty states
+  document.querySelectorAll('#tk-board .board-col').forEach(function(col){
+    var cards = col.querySelectorAll('.bcard');
+    var visible = Array.from(cards).filter(function(c){ return c.style.display !== 'none'; });
+    var empty = col.querySelector('.tk-col-empty');
+    if(!empty){
+      empty = document.createElement('div');
+      empty.className = 'tk-col-empty';
+      empty.textContent = 'Không có ticket';
+      col.querySelector('.board-cards').appendChild(empty);
+    }
+    empty.style.display = visible.length === 0 && hasFilter ? 'block' : 'none';
+  });
+
+  // Filter list rows
+  document.querySelectorAll('#tk-list-body tr').forEach(function(row){
+    var show = _tkMatch(row.dataset, row, q, status, prio, ch, agent, date, school, product, sla, unassigned, mine);
+    row.style.display = show ? '' : 'none';
+  });
+
+  // Count label (board + list share same data; count board cards)
+  var countEl = document.getElementById('tk-fcount');
+  if(hasFilter){
+    countEl.innerHTML = 'Hiện <b>' + total + '</b> ticket';
+  } else {
+    countEl.innerHTML = '';
+  }
+}
+
+function _tkMatch(ds, el, q, status, prio, ch, agent, date, school, product, sla, unassigned, mine){
+  if(status  && ds.status !== status) return false;
+  if(prio    && ds.priority !== prio) return false;
+  if(ch      && ds.channel !== ch) return false;
+  if(agent   && ds.agent !== agent) return false;
+  if(school  && ds.school !== school) return false;
+  if(product && ds.product !== product) return false;
+  if(date){
+    var d = ds.date;
+    if(date === 'today'     && d !== 'today') return false;
+    if(date === 'yesterday' && d !== 'yesterday') return false;
+    if(date === 'week'      && d !== 'today' && d !== 'yesterday' && d !== 'week') return false;
+    // 'month' = show all, no restriction
+  }
+  if(sla        && ds.sla !== 'breach') return false;
+  if(unassigned && ds.agent !== 'unassigned') return false;
+  if(mine       && ds.agent !== 'nguyen-hoa') return false;
+  if(q){
+    var text = el.textContent.toLowerCase();
+    if(text.indexOf(q) === -1) return false;
+  }
+  return true;
+}
+
+function tkFilterReset(){
+  document.getElementById('tk-search').value = '';
+  ['fsel-status','fsel-priority','fsel-channel','fsel-agent','fsel-date','fsel-school','fsel-product'].forEach(function(id){
+    document.getElementById(id).value = '';
+    document.getElementById(id).classList.remove('active');
+  });
+  _tkChips = {sla:false, unassigned:false, mine:false};
+  ['fc-sla','fc-unassigned','fc-mine'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.classList.remove('active');
+  });
+  // Close advanced row
+  document.getElementById('tk-fadv-row').classList.remove('open');
+  var btn = document.getElementById('tk-fadv-btn');
+  btn.classList.remove('open','has-active');
+  var badge = btn.querySelector('.tk-fadv-badge');
+  if(badge) badge.remove();
+
+  document.getElementById('tk-freset').style.display = 'none';
+  document.getElementById('tk-fcount').innerHTML = '';
+  document.querySelectorAll('#tk-board .bcard').forEach(function(c){ c.style.display = ''; });
+  document.querySelectorAll('#tk-board .tk-col-empty').forEach(function(e){ e.style.display = 'none'; });
+  document.querySelectorAll('#tk-list-body tr').forEach(function(r){ r.style.display = ''; });
+}
 </script>
 </body>
 </html>
