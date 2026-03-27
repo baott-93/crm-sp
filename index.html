@@ -22,17 +22,17 @@
   --yel50:#FFFBEB;--yel200:#FDE68A;--yel400:#F59E0B;--yel600:#92660C;
   --pur50:#F4F0FF;--pur200:#C4B5FD;--pur400:#8B5CF6;--pur600:#5B21B6;
   /* ── Shadows ── */
-  --sh-xs:0 1px 2px rgba(15,23,36,.05);
-  --sh-sm:0 2px 8px rgba(15,23,36,.07),0 1px 2px rgba(15,23,36,.04);
-  --sh-md:0 4px 16px rgba(15,23,36,.09),0 1px 4px rgba(15,23,36,.05);
-  --sh-lg:0 12px 32px rgba(15,23,36,.12),0 2px 8px rgba(15,23,36,.06);
+  --sh-xs:0 1px 3px rgba(15,23,36,.04);
+  --sh-sm:0 2px 8px rgba(15,23,36,.06),0 1px 2px rgba(15,23,36,.03);
+  --sh-md:0 4px 16px rgba(15,23,36,.07),0 1px 4px rgba(15,23,36,.04);
+  --sh-lg:0 12px 32px rgba(15,23,36,.10),0 2px 8px rgba(15,23,36,.05);
   /* ── Layout ── */
-  --sw:228px;--th:58px;
+  --sw:228px;--th:64px;
   --font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
-  --r:8px;--rl:12px;--rxl:16px;
+  --r:10px;--rl:14px;--rxl:20px;
 }
 html,body{height:100%;font-family:var(--font);color:var(--n800);font-size:14px;line-height:1.55}
-body{background:#EEF2F7;overflow:hidden}
+body{background:#F0F3F8;overflow:hidden}
 button{font-family:var(--font);cursor:pointer}
 a{color:inherit;text-decoration:none}
 
@@ -82,7 +82,7 @@ a{color:inherit;text-decoration:none}
   padding:12px 0;gap:4px;flex:1;width:100%;
 }
 .l1-item{
-  position:relative;width:44px;height:44px;border-radius:10px;
+  position:relative;width:46px;height:46px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;transition:all .15s;color:rgba(255,255,255,.4);
   flex-shrink:0;
@@ -153,15 +153,15 @@ a{color:inherit;text-decoration:none}
 }
 .s-panel::-webkit-scrollbar{width:0}
 .s-panel-brand{
-  padding:14px 16px 12px;
+  padding:16px 16px 14px;
   border-bottom:1px solid var(--n200);
   flex-shrink:0;display:flex;align-items:center;gap:10px;
 }
-.s-panel-brand-name{font-size:16px;font-weight:700;color:var(--n800);letter-spacing:-.02em;line-height:1.2}
+.s-panel-brand-name{font-size:17px;font-weight:700;color:var(--n800);letter-spacing:-.02em;line-height:1.2}
 .s-panel-brand-name em{color:var(--p500);font-style:normal}
-.s-panel-brand-role{font-size:10px;color:var(--n400);margin-top:1px}
+.s-panel-brand-role{font-size:10px;color:var(--n400);margin-top:2px}
 .s-panel-head{
-  padding:12px 16px 8px;
+  padding:14px 16px 10px;
   border-bottom:1px solid var(--n100);
   flex-shrink:0;
 }
@@ -174,19 +174,19 @@ a{color:inherit;text-decoration:none}
 
 /* Nav items in L2 */
 .nav{
-  display:flex;align-items:center;gap:9px;
-  padding:8px 10px;margin:2px 0;
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;margin:2px 0;
   border-radius:var(--r);cursor:pointer;
-  font-size:12.5px;font-weight:500;color:var(--n500);
+  font-size:13px;font-weight:500;color:var(--n500);
   transition:all .15s;user-select:none;
   white-space:nowrap;overflow:hidden;
 }
 .nav:hover{background:var(--n50);color:var(--n700)}
 .nav.active{background:var(--p50);color:var(--p600);font-weight:600}
 .nav .ni{
-  width:28px;height:28px;border-radius:8px;
+  width:30px;height:30px;border-radius:9px;
   display:flex;align-items:center;justify-content:center;
-  font-size:12px;flex-shrink:0;
+  font-size:13px;flex-shrink:0;
   background:var(--n100);color:var(--n500);
   transition:all .15s;
 }
@@ -209,25 +209,69 @@ a{color:inherit;text-decoration:none}
 .topbar{
   height:var(--th);background:var(--n0);
   border-bottom:1px solid var(--n200);
-  display:flex;align-items:center;padding:0 28px;gap:14px;flex-shrink:0;
+  display:flex;align-items:center;padding:0 24px;gap:16px;flex-shrink:0;
   box-shadow:var(--sh-xs);
 }
-.tb-title{font-size:15px;font-weight:700;color:var(--n800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.tb-sep{width:1px;height:18px;background:var(--n200);flex-shrink:0}
-.tb-meta{font-size:12px;color:var(--n400);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.tb-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.tb-title{font-size:16px;font-weight:700;color:var(--n800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex-shrink:0}
+.tb-sep{width:1px;height:20px;background:var(--n200);flex-shrink:0}
+.tb-meta{font-size:12px;color:var(--n400);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex-shrink:1}
+/* Topbar search */
+.tb-search{
+  flex:1;max-width:420px;min-width:140px;
+  display:flex;align-items:center;gap:8px;
+  background:var(--n50);border:1.5px solid var(--n100);border-radius:var(--rl);
+  padding:0 14px;height:38px;transition:all .2s;margin-left:auto;
+}
+.tb-search:focus-within{border-color:var(--p400);background:var(--n0);box-shadow:0 0 0 3px rgba(43,127,232,.1)}
+.tb-search svg{flex-shrink:0;color:var(--n400)}
+.tb-search input{
+  border:none;outline:none;background:none;
+  font-family:var(--font);font-size:13px;color:var(--n800);
+  flex:1;height:100%;
+}
+.tb-search input::placeholder{color:var(--n300)}
+/* Topbar icon buttons */
+.tb-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.tb-icon-btn{
+  position:relative;width:38px;height:38px;border-radius:var(--r);
+  display:flex;align-items:center;justify-content:center;
+  background:none;border:1.5px solid transparent;color:var(--n500);
+  cursor:pointer;transition:all .15s;
+}
+.tb-icon-btn:hover{background:var(--n50);border-color:var(--n200);color:var(--n700)}
+.tb-icon-btn svg{width:18px;height:18px}
+.tb-notif-dot{
+  position:absolute;top:6px;right:6px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--red400);border:2px solid var(--n0);
+}
+.tb-notif-count{
+  position:absolute;top:3px;right:2px;
+  font-size:9px;font-weight:700;color:#fff;
+  background:var(--red400);border-radius:10px;
+  padding:0 4px;min-width:16px;height:16px;
+  line-height:16px;text-align:center;border:2px solid var(--n0);
+}
+.tb-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--p500),var(--p400));
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;cursor:pointer;
+  margin-left:4px;flex-shrink:0;
+  box-shadow:0 2px 8px rgba(43,127,232,.25);
+}
 .tb-badge{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;white-space:nowrap;border:1.5px solid}
 .tb-shift{background:var(--grn50);color:var(--grn600);border-color:var(--grn200)}
 .tb-alert{background:var(--red50);color:var(--red600);border-color:var(--red200)}
 .tb-print{
   font-family:var(--font);font-size:11px;font-weight:600;
   background:var(--n700);color:#fff;border:none;border-radius:var(--r);
-  padding:6px 14px;cursor:pointer;transition:background .15s;
+  padding:7px 14px;cursor:pointer;transition:background .15s;
 }
 .tb-print:hover{background:var(--n800)}
 
 /* ══ CONTENT ══ */
-.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:24px 28px 56px;-webkit-overflow-scrolling:touch}
+.content{flex:1;overflow-y:auto;overflow-x:hidden;padding:28px 28px 56px;-webkit-overflow-scrolling:touch}
 .content::-webkit-scrollbar{width:5px}
 .content::-webkit-scrollbar-thumb{background:var(--n300);border-radius:3px}
 .view{display:none}
@@ -239,47 +283,49 @@ a{color:inherit;text-decoration:none}
 .sec-hd-lbl{font-size:12px;color:var(--n400)}
 
 /* ══ METRIC CARDS ══ */
-.mg{display:grid;gap:14px;margin-bottom:16px}
+.mg{display:grid;gap:16px;margin-bottom:18px}
 .mg-4{grid-template-columns:repeat(4,1fr)}
 .mg-5{grid-template-columns:repeat(5,1fr)}
 .mg-3{grid-template-columns:repeat(3,1fr)}
 .mc{
   background:var(--n0);border-radius:var(--rl);
   box-shadow:var(--sh-sm);
-  padding:18px 20px;
+  padding:20px 22px;
   border:1px solid var(--n100);
   display:flex;align-items:flex-start;gap:14px;
+  position:relative;overflow:hidden;
 }
 .mc-icon{
-  width:44px;height:44px;border-radius:12px;
+  position:absolute;top:16px;right:16px;
+  width:42px;height:42px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
-  font-size:18px;flex-shrink:0;
+  font-size:17px;flex-shrink:0;
 }
 .mc-icon.blue{background:var(--p100);color:var(--p600)}
 .mc-icon.green{background:var(--grn50);color:var(--grn600)}
 .mc-icon.red{background:var(--red50);color:var(--red600)}
 .mc-icon.yellow{background:var(--yel50);color:var(--yel600)}
 .mc-icon.purple{background:var(--pur50);color:var(--pur600)}
-.mc-body{flex:1;min-width:0}
-.mc-lbl{font-size:11px;font-weight:500;color:var(--n400);margin-bottom:4px}
-.mc-val{font-size:26px;font-weight:700;line-height:1;color:var(--n800);letter-spacing:-.02em}
+.mc-body{flex:1;min-width:0;padding-right:42px}
+.mc-lbl{font-size:12px;font-weight:500;color:var(--n400);margin-bottom:8px}
+.mc-val{font-size:28px;font-weight:700;line-height:1;color:var(--n800);letter-spacing:-.02em}
 .mc-val.blue{color:var(--p600)}.mc-val.g{color:var(--grn600)}.mc-val.r{color:var(--red600)}.mc-val.a{color:var(--yel600)}.mc-val.b{color:var(--p600)}
-.mc-sub{font-size:11px;color:var(--n400);margin-top:5px}
-.trend{display:inline-flex;align-items:center;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-top:5px}
+.mc-sub{font-size:11px;color:var(--n400);margin-top:6px}
+.trend{display:inline-flex;align-items:center;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-top:6px}
 .tup{background:var(--grn50);color:var(--grn600)}.tdn{background:var(--red50);color:var(--red600)}.tfl{background:var(--n100);color:var(--n400)}
 
 /* ══ CARDS ══ */
 .card{
   background:var(--n0);border-radius:var(--rl);
   box-shadow:var(--sh-sm);border:1px solid var(--n100);
-  padding:18px 20px;margin-bottom:14px;
+  padding:20px 22px;margin-bottom:16px;
 }
-.ct{font-size:13px;font-weight:700;color:var(--n800);margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ct{font-size:14px;font-weight:700;color:var(--n800);margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ct-sub{font-size:11px;font-weight:400;color:var(--n400);margin-left:auto}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-.g65{display:grid;grid-template-columns:1.8fr 1fr;gap:14px}
-.g56{display:grid;grid-template-columns:1fr 1.8fr;gap:14px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.g65{display:grid;grid-template-columns:1.8fr 1fr;gap:16px}
+.g56{display:grid;grid-template-columns:1fr 1.8fr;gap:16px}
 
 /* ══ PILLS ══ */
 .pill{display:inline-flex;align-items:center;font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
@@ -289,19 +335,19 @@ a{color:inherit;text-decoration:none}
 .pc{background:#FFF0E6;color:#A0522D}
 
 /* ══ TABLES ══ */
-.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:12.5px}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}
 .tbl th{
-  text-align:left;padding:9px 12px;
-  font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  text-align:left;padding:10px 14px;
+  font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
   color:var(--n400);border-bottom:1.5px solid var(--n200);
   background:var(--n50);white-space:nowrap;
 }
-.tbl td{padding:10px 12px;border-bottom:1px solid var(--n100);vertical-align:middle;color:var(--n800)}
+.tbl td{padding:12px 14px;border-bottom:1px solid var(--n100);vertical-align:middle;color:var(--n800)}
 .tbl tr:last-child td{border-bottom:none}
 .tbl tbody tr:hover td{background:var(--p50)}
-.tbl .num{text-align:right;font-family:var(--mono);font-size:11px}
+.tbl .num{text-align:right;font-family:var(--mono);font-size:12px}
 .tbl .ctr{text-align:center}
-.tk-id-cell{font-family:var(--mono);font-size:10.5px;color:var(--n400)}
+.tk-id-cell{font-family:var(--mono);font-size:11px;color:var(--n400)}
 
 /* ══ BAR CHART ══ */
 .bc{display:flex;flex-direction:column;gap:9px}
@@ -313,7 +359,7 @@ a{color:inherit;text-decoration:none}
 .bc-pct{font-size:10px;color:var(--n400);width:30px;text-align:right;flex-shrink:0}
 
 /* ══ ALERTS ══ */
-.al{border-radius:var(--r);padding:12px 14px;font-size:12px;margin-top:12px;display:flex;gap:10px;align-items:flex-start;line-height:1.55}
+.al{border-radius:var(--r);padding:14px 16px;font-size:12.5px;margin-top:12px;display:flex;gap:10px;align-items:flex-start;line-height:1.55}
 .al-r{background:var(--red50);border-left:3px solid var(--red400);color:var(--red600)}
 .al-a{background:var(--yel50);border-left:3px solid var(--yel400);color:var(--yel600)}
 .al-g{background:var(--grn50);border-left:3px solid var(--grn400);color:var(--grn600)}
@@ -321,18 +367,18 @@ a{color:inherit;text-decoration:none}
 .al-ico{font-size:14px;flex-shrink:0;margin-top:1px}.al-t{font-weight:700;margin-bottom:2px}
 
 /* ══ INBOX ══ */
-.fbar{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.fbar{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
 .fbtn{
-  font-size:11.5px;font-weight:500;padding:5px 14px;border-radius:20px;
+  font-size:11.5px;font-weight:500;padding:6px 16px;border-radius:20px;
   border:1.5px solid var(--n200);background:var(--n0);color:var(--n500);
   cursor:pointer;transition:all .12s;
 }
 .fbtn:hover{border-color:var(--p400);color:var(--p600)}
 .fbtn.on{background:var(--p500);color:#fff;border-color:var(--p500);font-weight:700}
-.inbox-list{display:flex;flex-direction:column;gap:8px}
+.inbox-list{display:flex;flex-direction:column;gap:10px}
 .iitem{
   background:var(--n0);border:1px solid var(--n200);border-radius:var(--rl);
-  padding:12px 16px;cursor:pointer;transition:all .15s;
+  padding:14px 18px;cursor:pointer;transition:all .15s;
   box-shadow:var(--sh-xs);
 }
 .iitem:hover{border-color:var(--p400);box-shadow:var(--sh-sm)}
@@ -361,17 +407,17 @@ a{color:inherit;text-decoration:none}
 .sh-hdr,.sh-row{display:grid;grid-template-columns:110px repeat(3,1fr);gap:10px;align-items:center}
 .sh-hdr{padding:5px 10px}
 .sh-h{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;text-align:center;color:var(--n400)}
-.sh-row{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r);padding:9px 12px;margin-bottom:6px;box-shadow:var(--sh-xs)}
+.sh-row{background:var(--n0);border:1px solid var(--n200);border-radius:var(--r);padding:10px 14px;margin-bottom:8px;box-shadow:var(--sh-xs)}
 .sh-name{font-size:12px;font-weight:600;color:var(--n700)}
 .sh-cell{border-radius:var(--r);padding:5px 7px;text-align:center;font-size:11px;font-weight:500;border:1px solid var(--n200);color:var(--n500);background:var(--n50)}
 .sh-on{background:var(--p50);color:var(--p600);border-color:var(--p200)}
 .sh-lead{background:var(--yel50);color:var(--yel600);border-color:var(--yel200);font-weight:700}
 
 /* ══ CANNED ══ */
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ccard{
   background:var(--n0);border:1px solid var(--n200);border-radius:var(--rl);
-  padding:12px 14px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-xs);
+  padding:14px 16px;cursor:pointer;transition:all .15s;box-shadow:var(--sh-xs);
 }
 .ccard:hover{border-color:var(--p400);box-shadow:var(--sh-sm);background:var(--p50)}
 .ctag{font-size:10px;color:var(--n400);margin-bottom:4px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
@@ -380,9 +426,9 @@ a{color:inherit;text-decoration:none}
 
 /* ══ SEARCH ══ */
 .sbox{
-  display:flex;align-items:center;gap:9px;background:var(--n0);
-  border:1.5px solid var(--n200);border-radius:var(--r);
-  padding:8px 14px;margin-bottom:14px;transition:all .15s;
+  display:flex;align-items:center;gap:10px;background:var(--n0);
+  border:1.5px solid var(--n200);border-radius:var(--rl);
+  padding:9px 16px;margin-bottom:16px;transition:all .15s;
   box-shadow:var(--sh-xs);
 }
 .sbox:focus-within{border-color:var(--p500);box-shadow:0 0 0 3px rgba(43,127,232,.1)}
@@ -427,17 +473,17 @@ a{color:inherit;text-decoration:none}
 .ring-pct{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:12px}
 
 /* ══ COACH ══ */
-.coach-card{border-radius:var(--r);padding:11px 14px;margin-bottom:9px;border:1px solid}
+.coach-card{border-radius:var(--r);padding:13px 16px;margin-bottom:10px;border:1px solid}
 .coach-r{background:var(--red50);border-color:var(--red200)}.coach-a{background:var(--yel50);border-color:var(--yel200)}
 .coach-name-r{font-size:13px;font-weight:700;color:var(--red600)}
 .coach-name-a{font-size:13px;font-weight:700;color:var(--yel600)}
 .coach-kpi{font-size:11px;margin-top:3px}.coach-note{font-size:11px;color:var(--n500);margin-top:5px}
 
 /* ══ RPT HEADER ══ */
-.rpt-hd{background:linear-gradient(135deg,var(--p700) 0%,var(--p500) 100%);border-radius:var(--rxl);padding:20px 26px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:var(--sh-md)}
-.rpt-hd-title{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.rpt-hd{background:linear-gradient(135deg,var(--p700) 0%,var(--p500) 100%);border-radius:var(--rxl);padding:22px 28px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:var(--sh-md)}
+.rpt-hd-title{font-size:19px;font-weight:700;color:#fff;letter-spacing:-.01em}
 .rpt-hd-sub{font-size:12px;color:rgba(255,255,255,.65);margin-top:3px}
-.rpt-hd-badge{background:rgba(255,255,255,.2);color:#fff;font-size:11.5px;font-weight:700;padding:6px 16px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,255,255,.3)}
+.rpt-hd-badge{background:rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:700;padding:7px 18px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,255,255,.3)}
 .rfooter{margin-top:36px;padding-top:16px;border-top:1px solid var(--n200);display:flex;justify-content:space-between;font-size:11px;color:var(--n400);flex-wrap:wrap;gap:6px}
 /* vol-chart */
 #vol-chart{display:flex;align-items:flex-end;gap:5px;height:110px;padding-bottom:22px;position:relative}
@@ -448,8 +494,8 @@ a{color:inherit;text-decoration:none}
 .tk-view-btns{display:flex;align-items:center;gap:4px;background:var(--n100);border-radius:var(--r);padding:3px}
 .tvb{
   display:inline-flex;align-items:center;gap:6px;
-  background:none;border:none;border-radius:7px;
-  padding:5px 12px;font-size:12px;font-weight:500;color:var(--n500);
+  background:none;border:none;border-radius:8px;
+  padding:6px 14px;font-size:12px;font-weight:500;color:var(--n500);
   cursor:pointer;font-family:var(--font);transition:all .15s;white-space:nowrap;
 }
 .tvb:hover{color:var(--n800)}
@@ -461,15 +507,15 @@ a{color:inherit;text-decoration:none}
   display:grid;grid-template-columns:repeat(4,1fr);
   gap:14px;align-items:start;
 }
-.board-col{background:var(--n50);border-radius:var(--rl);padding:12px 10px;min-height:300px}
-.board-col-hd{display:flex;align-items:center;gap:8px;padding:2px 4px 12px;border-bottom:1px solid var(--n200);margin-bottom:10px}
+.board-col{background:var(--n50);border-radius:var(--rl);padding:14px 12px;min-height:300px}
+.board-col-hd{display:flex;align-items:center;gap:8px;padding:2px 4px 14px;border-bottom:1px solid var(--n200);margin-bottom:12px}
 .board-col-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.board-col-title{font-size:12.5px;font-weight:700;color:var(--n800);flex:1}
-.board-col-cnt{font-size:11px;font-weight:700;background:var(--n200);color:var(--n600);padding:1px 8px;border-radius:20px}
-.board-cards{display:flex;flex-direction:column;gap:8px}
+.board-col-title{font-size:13px;font-weight:700;color:var(--n800);flex:1}
+.board-col-cnt{font-size:11px;font-weight:700;background:var(--n200);color:var(--n600);padding:2px 8px;border-radius:20px}
+.board-cards{display:flex;flex-direction:column;gap:10px}
 .bcard{
   background:var(--n0);border:1px solid var(--n200);border-radius:var(--r);
-  padding:11px 12px;cursor:pointer;transition:all .15s;
+  padding:13px 14px;cursor:pointer;transition:all .15s;
   box-shadow:var(--sh-xs);
 }
 .bcard:hover{border-color:var(--p400);box-shadow:var(--sh-sm);transform:translateY(-1px)}
@@ -540,12 +586,12 @@ a{color:inherit;text-decoration:none}
   background:var(--p500);color:#fff;
   border:none;border-radius:var(--r);
   font-family:var(--font);font-size:12.5px;font-weight:600;
-  padding:8px 16px;cursor:pointer;
+  padding:8px 18px;cursor:pointer;
   transition:all .15s;
   white-space:nowrap;flex-shrink:0;
-  box-shadow:0 2px 8px rgba(43,127,232,.28);
+  box-shadow:0 2px 8px rgba(43,127,232,.25);
 }
-.btn-create:hover{background:var(--p600);box-shadow:0 4px 12px rgba(43,127,232,.35)}
+.btn-create:hover{background:var(--p600);box-shadow:0 4px 14px rgba(43,127,232,.3)}
 .btn-create:active{transform:scale(.97)}
 /* ── MODAL ── */
 .modal-bd{
@@ -555,7 +601,7 @@ a{color:inherit;text-decoration:none}
 }
 .modal-bd.open{display:flex}
 .modal-box{
-  background:#fff;border-radius:14px;
+  background:#fff;border-radius:18px;
   box-shadow:0 16px 48px rgba(10,28,46,.18);
   width:100%;max-width:540px;
   max-height:calc(100dvh - 32px);overflow-y:auto;
@@ -564,8 +610,8 @@ a{color:inherit;text-decoration:none}
 @keyframes mIn{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
 .modal-head{
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 22px 14px;border-bottom:1px solid var(--n100);
-  position:sticky;top:0;background:#fff;z-index:1;border-radius:14px 14px 0 0;
+  padding:20px 24px 16px;border-bottom:1px solid var(--n100);
+  position:sticky;top:0;background:#fff;z-index:1;border-radius:18px 18px 0 0;
 }
 .modal-head-t{font-size:15px;font-weight:700;color:var(--n800);display:flex;align-items:center;gap:9px}
 .modal-head-id{font-family:var(--mono);font-size:11px;background:var(--p50);color:var(--p700);padding:2px 9px;border-radius:10px;font-weight:700}
@@ -583,7 +629,7 @@ a{color:inherit;text-decoration:none}
 .flbl .req{color:var(--red400);margin-left:2px}
 .finput,.fsel,.ftxt{
   width:100%;border:1.5px solid var(--n200);border-radius:var(--r);
-  padding:8px 11px;font-size:12.5px;font-family:var(--font);color:var(--n800);
+  padding:9px 12px;font-size:13px;font-family:var(--font);color:var(--n800);
   background:var(--n0);outline:none;transition:border-color .15s,box-shadow .15s;
 }
 .finput:focus,.fsel:focus,.ftxt:focus{
@@ -622,15 +668,15 @@ a{color:inherit;text-decoration:none}
 /* Buttons */
 .btn-ghost{
   background:none;border:1.5px solid var(--n200);border-radius:var(--r);
-  padding:7px 16px;font-size:12.5px;font-weight:600;color:var(--n600);
+  padding:8px 18px;font-size:13px;font-weight:600;color:var(--n600);
   cursor:pointer;font-family:var(--font);transition:all .15s;
 }
 .btn-ghost:hover{border-color:var(--n400);color:var(--n800)}
 .btn-primary{
   background:var(--p500);color:#fff;border:none;border-radius:var(--r);
-  padding:8px 20px;font-size:12.5px;font-weight:700;font-family:var(--font);
+  padding:9px 22px;font-size:13px;font-weight:700;font-family:var(--font);
   cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .15s;
-  box-shadow:0 2px 8px rgba(43,127,232,.28);
+  box-shadow:0 2px 8px rgba(43,127,232,.25);
 }
 .btn-primary:hover{background:var(--p600)}
 .btn-primary:disabled{background:var(--n300);cursor:not-allowed;box-shadow:none}
@@ -639,18 +685,21 @@ a{color:inherit;text-decoration:none}
 .modal-ok.show{display:flex}
 .ok-ico{width:52px;height:52px;border-radius:50%;background:var(--grn50);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 @media(max-width:600px){
-  .modal-box{max-height:calc(100dvh - 8px);border-radius:14px 14px 0 0;align-self:flex-end}
+  .modal-box{max-height:calc(100dvh - 8px);border-radius:18px 18px 0 0;align-self:flex-end}
   .modal-bd{padding:0;align-items:flex-end}
   .fr2{grid-template-columns:1fr}
   .btn-create span{display:none}
   .btn-create{padding:7px 10px}
+  .tb-search{display:none}
+  .tb-meta{display:none}
+  .tb-sep{display:none}
 }
 /* ══ QUY TRÌNH FLOW ══ */
-.proc-flow{display:flex;align-items:flex-start;gap:0;flex-wrap:wrap;row-gap:8px}
+.proc-flow{display:flex;align-items:flex-start;gap:0;flex-wrap:wrap;row-gap:10px}
 .proc-step{
-  display:flex;align-items:flex-start;gap:9px;
+  display:flex;align-items:flex-start;gap:10px;
   background:var(--n0);border:1.5px solid var(--n200);border-radius:var(--r);
-  padding:10px 12px;min-width:140px;flex:1;
+  padding:12px 14px;min-width:140px;flex:1;
 }
 .proc-step.blue{border-color:var(--p200);background:var(--p50)}
 .proc-step.yellow{border-color:var(--yel200);background:var(--yel50)}
@@ -680,6 +729,63 @@ a{color:inherit;text-decoration:none}
   .proc-step{min-width:unset}
 }
 @media print{.sidebar,.topbar{display:none!important}.main{height:auto;overflow:visible}.content{overflow:visible;padding:16px}.view{display:block!important}.page-break{page-break-before:always}}
+
+/* ══ SYSTEM MAP ══ */
+.smap-mod{margin-bottom:20px}
+.smap-mod-hd{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 20px;
+  background:var(--n0);border:1.5px solid var(--n200);border-radius:var(--rl) var(--rl) 0 0;
+  cursor:pointer;transition:all .15s;
+}
+.smap-mod-hd:hover{border-color:var(--p400)}
+.smap-mod-hd.open{border-bottom-color:var(--n100)}
+.smap-mod-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.smap-mod-name{font-size:14px;font-weight:700;color:var(--n800)}
+.smap-mod-desc{font-size:11px;color:var(--n400);margin-top:1px}
+.smap-mod-cnt{margin-left:auto;font-size:11px;font-weight:700;background:var(--n100);color:var(--n600);padding:2px 10px;border-radius:20px;flex-shrink:0}
+.smap-mod-arrow{color:var(--n300);font-size:14px;transition:transform .2s;flex-shrink:0}
+.smap-mod-hd.open .smap-mod-arrow{transform:rotate(180deg)}
+.smap-views{
+  display:none;
+  background:var(--n0);border:1.5px solid var(--n200);border-top:none;
+  border-radius:0 0 var(--rl) var(--rl);
+  padding:6px 10px 10px;
+}
+.smap-views.open{display:block}
+.smap-v{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;margin:3px 0;
+  border-radius:var(--r);cursor:pointer;
+  transition:all .12s;border:1px solid transparent;
+}
+.smap-v:hover{background:var(--p50);border-color:var(--p200)}
+.smap-v-ico{font-size:15px;flex-shrink:0;width:24px;text-align:center}
+.smap-v-name{font-size:12.5px;font-weight:600;color:var(--n800)}
+.smap-v-desc{font-size:10.5px;color:var(--n400);margin-top:1px}
+.smap-v-status{margin-left:auto;flex-shrink:0}
+.smap-v-goto{
+  display:none;font-size:10px;font-weight:700;color:var(--p600);
+  background:var(--p50);padding:3px 10px;border-radius:12px;
+  flex-shrink:0;white-space:nowrap;
+}
+.smap-v:hover .smap-v-goto{display:inline-block}
+
+/* Roadmap */
+.rm-phase{margin-bottom:18px}
+.rm-phase-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rm-phase-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;border:2.5px solid}
+.rm-phase-title{font-size:13px;font-weight:700;color:var(--n800)}
+.rm-phase-sub{font-size:11px;color:var(--n400)}
+.rm-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;padding-left:22px;border-left:2px solid var(--n200);margin-left:5px}
+.rm-item{
+  background:var(--n0);border:1.5px solid var(--n200);border-radius:var(--r);
+  padding:12px 14px;transition:all .12s;
+}
+.rm-item:hover{border-color:var(--p400);box-shadow:var(--sh-sm)}
+.rm-item-name{font-size:12.5px;font-weight:700;color:var(--n800);margin-bottom:3px}
+.rm-item-desc{font-size:11px;color:var(--n500);line-height:1.5}
+.rm-item-tags{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -713,6 +819,10 @@ a{color:inherit;text-decoration:none}
       <!-- Báo cáo & Phân tích -->
       <div class="l1-item" id="l1-rpt" data-group="rpt" data-tip="Báo cáo & Phân tích" onclick="selectL1('rpt',this)">
         <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="13" width="3" height="6" rx="1" fill="currentColor" opacity=".9"/><rect x="8" y="9" width="3" height="10" rx="1" fill="currentColor" opacity=".75"/><rect x="13" y="5" width="3" height="14" rx="1" fill="currentColor" opacity=".6"/><rect x="18" y="2" width="3" height="17" rx="1" fill="currentColor" opacity=".45"/><path d="M3 21h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <!-- Bản đồ hệ thống -->
+      <div class="l1-item" id="l1-sysmap" data-group="sysmap" data-tip="Bản đồ hệ thống" onclick="selectL1('sysmap',this)">
+        <svg viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="12" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="12" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="12" y="12" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
       </div>
     </div>
 
@@ -814,6 +924,22 @@ a{color:inherit;text-decoration:none}
       </div>
     </div>
 
+    <!-- Group: Bản đồ hệ thống -->
+    <div class="s-group" id="sg-sysmap">
+      <div class="s-panel-head">
+        <div class="s-panel-title">Bản đồ hệ thống</div>
+        <div class="s-panel-sub">Cấu trúc CRM & lộ trình phát triển</div>
+      </div>
+      <div class="s-panel-body">
+        <div class="nav" onclick="sw('sysmap',this)" data-tb="Bản đồ hệ thống CRM" data-meta="16 view · 3 module · Cập nhật 27/03/2026">
+          <span class="ni">🗺</span>Toàn bộ hệ thống
+        </div>
+        <div class="nav" onclick="sw('sysmap-roadmap',this)" data-tb="Lộ trình phát triển" data-meta="Backlog & kế hoạch mở rộng">
+          <span class="ni">🚀</span>Roadmap
+        </div>
+      </div>
+    </div>
+
   </div><!-- /s-panel -->
 </nav>
 
@@ -823,14 +949,36 @@ a{color:inherit;text-decoration:none}
     <span class="tb-title" id="tb-title">Dashboard — Trực tiếp</span>
     <div class="tb-sep"></div>
     <span class="tb-meta" id="tb-meta">Thứ 4, 18/03/2026 · Ca chiều</span>
+
+    <!-- Search -->
+    <div class="tb-search">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Tìm kiếm ticket, KH, agent...">
+    </div>
+
+    <!-- Right icons -->
     <div class="tb-right">
-      <span class="tb-badge tb-shift">Ca chiều · 12:00–17:00</span>
-      <span class="tb-badge tb-alert">3 vi phạm SLA</span>
       <button class="tb-print" id="tb-print-btn" style="display:none" onclick="window.print()">⎙ Xuất PDF</button>
+      <!-- Mail -->
+      <button class="tb-icon-btn" title="Hộp thư">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 6l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <!-- Notifications -->
+      <button class="tb-icon-btn" title="Thông báo">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a5 5 0 0 0-5 5v3l-1.5 2.5a.8.8 0 0 0 .7 1.2h11.6a.8.8 0 0 0 .7-1.2L15 10V7a5 5 0 0 0-5-5z" stroke="currentColor" stroke-width="1.5"/><path d="M8 14a2 2 0 1 0 4 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="tb-notif-count">3</span>
+      </button>
+      <!-- Settings -->
+      <button class="tb-icon-btn" title="Cài đặt">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 1.5v2M10 16.5v2M3.1 3.1l1.4 1.4M15.5 15.5l1.4 1.4M1.5 10h2M16.5 10h2M3.1 16.9l1.4-1.4M15.5 4.5l1.4-1.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </button>
+      <!-- Create ticket -->
       <button class="btn-create" onclick="openModal()">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <span>Tạo ticket</span>
       </button>
+      <!-- Avatar -->
+      <div class="tb-avatar" title="Trần Thái Bảo · Admin">TB</div>
     </div>
   </div>
 
@@ -1749,6 +1897,326 @@ a{color:inherit;text-decoration:none}
       <div class="rfooter"><div>Hiệu suất Agent — HTKH | T3/2026</div><div>Chỉ Trưởng nhóm & Trưởng phòng</div></div>
     </div><!-- /r-ag -->
 
+    <!-- ══════ VIEW: BẢN ĐỒ HỆ THỐNG ══════ -->
+    <div class="view" id="view-sysmap">
+      <div class="mg mg-4" style="margin-bottom:18px">
+        <div class="mc"><div class="mc-icon blue">🗺</div><div class="mc-body"><div class="mc-lbl">Tổng module (L1)</div><div class="mc-val blue">3</div><div class="mc-sub">Vận hành · Tập huấn · Báo cáo</div></div></div>
+        <div class="mc"><div class="mc-icon green">📄</div><div class="mc-body"><div class="mc-lbl">Tổng view đã build</div><div class="mc-val g">16</div><div class="mc-sub">Hoạt động đầy đủ</div></div></div>
+        <div class="mc"><div class="mc-icon yellow">🚧</div><div class="mc-body"><div class="mc-lbl">Dự kiến mở rộng</div><div class="mc-val a">8+</div><div class="mc-sub">Xem Roadmap</div></div></div>
+        <div class="mc"><div class="mc-icon purple">⚡</div><div class="mc-body"><div class="mc-lbl">Cập nhật lần cuối</div><div class="mc-val" style="font-size:18px">27/03</div><div class="mc-sub">2026</div></div></div>
+      </div>
+
+      <div class="al al-b" style="margin-bottom:16px"><div class="al-ico">💡</div><div><div class="al-t">Cách sử dụng</div>Bấm vào từng module để xem danh sách view bên trong. Bấm <strong>"Đi tới →"</strong> để mở view trực tiếp. Dùng trang này làm tham chiếu khi đưa yêu cầu phát triển mới.</div></div>
+
+      <!-- Module 1: Vận hành CSKH -->
+      <div class="smap-mod">
+        <div class="smap-mod-hd open" onclick="toggleSmap(this)">
+          <div class="smap-mod-ico" style="background:var(--p100);color:var(--p600)">⊕</div>
+          <div>
+            <div class="smap-mod-name">Vận hành CSKH</div>
+            <div class="smap-mod-desc">Quản lý ticket, inbox đa kênh, ca trực, SOP, FAQ</div>
+          </div>
+          <span class="smap-mod-cnt">7 views</span>
+          <span class="smap-mod-arrow">▾</span>
+        </div>
+        <div class="smap-views open">
+          <div class="smap-v" onclick="gotoView('dashboard','ops')">
+            <div class="smap-v-ico">▦</div>
+            <div>
+              <div class="smap-v-name">Dashboard — Trực tiếp</div>
+              <div class="smap-v-desc">KPI realtime: ticket hôm nay, FRT, SLA, agent workload, phân bổ kênh</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('inbox','ops')">
+            <div class="smap-v-ico">✉</div>
+            <div>
+              <div class="smap-v-name">Hộp thư hợp nhất (Inbox)</div>
+              <div class="smap-v-desc">Omni-channel inbox: Zalo OA, Chat SP, Tổng đài, Zalo nhóm, Nội bộ — filter theo trạng thái/kênh</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('tickets','ops')">
+            <div class="smap-v-ico">📋</div>
+            <div>
+              <div class="smap-v-name">Quản lý Ticket</div>
+              <div class="smap-v-desc">3 chế độ xem: Board (Kanban), List (bảng), Calendar — Metric tổng hợp + Modal tạo ticket</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('shift','ops')">
+            <div class="smap-v-ico">🔄</div>
+            <div>
+              <div class="smap-v-name">Ca trực & Bàn giao</div>
+              <div class="smap-v-desc">Phân công 3 ca/ngày, bảng Lead/Agent, form bàn giao ca với ghi chú ticket tồn đọng</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('canned','ops')">
+            <div class="smap-v-ico">⊟</div>
+            <div>
+              <div class="smap-v-name">Mẫu phản hồi (Canned Response)</div>
+              <div class="smap-v-desc">84 mẫu · 6 danh mục · Shortcode /slash command — tìm kiếm nhanh</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('faq','ops')">
+            <div class="smap-v-ico">❓</div>
+            <div>
+              <div class="smap-v-name">FAQ / Knowledge Base</div>
+              <div class="smap-v-desc">126 bài · filter theo danh mục · hướng dẫn xử lý từng tình huống phổ biến</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('process','ops')">
+            <div class="smap-v-ico">⚙</div>
+            <div>
+              <div class="smap-v-name">Quy trình vận hành (SOP)</div>
+              <div class="smap-v-desc">4 quy trình: QT-01 Tiếp nhận, QT-02 Xử lý & Escalation, QT-03 Bàn giao ca, QT-04 QC</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 2: Tập huấn -->
+      <div class="smap-mod">
+        <div class="smap-mod-hd open" onclick="toggleSmap(this)">
+          <div class="smap-mod-ico" style="background:var(--grn50);color:var(--grn600)">🎓</div>
+          <div>
+            <div class="smap-mod-name">Tập huấn & Đào tạo</div>
+            <div class="smap-mod-desc">Lịch đào tạo, tài liệu, kết quả kiểm tra, IDP cá nhân</div>
+          </div>
+          <span class="smap-mod-cnt">4 views</span>
+          <span class="smap-mod-arrow">▾</span>
+        </div>
+        <div class="smap-views open">
+          <div class="smap-v" onclick="gotoView('training-schedule','training')">
+            <div class="smap-v-ico">📅</div>
+            <div>
+              <div class="smap-v-name">Lịch tập huấn</div>
+              <div class="smap-v-desc">6 buổi/tháng · bảng theo dõi chủ đề, ngày, hình thức, đối tượng, tham dự</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('training-material','training')">
+            <div class="smap-v-ico">📚</div>
+            <div>
+              <div class="smap-v-name">Tài liệu đào tạo</div>
+              <div class="smap-v-desc">32 tài liệu · PDF, Video, PPTX, Audio · filter theo loại nghiệp vụ</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('training-result','training')">
+            <div class="smap-v-ico">📊</div>
+            <div>
+              <div class="smap-v-name">Kết quả tập huấn</div>
+              <div class="smap-v-desc">Điểm từng agent theo buổi, TB toàn đội, cảnh báo agent dưới ngưỡng 70đ</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('training-idp','training')">
+            <div class="smap-v-ico">🎯</div>
+            <div>
+              <div class="smap-v-name">IDP cá nhân</div>
+              <div class="smap-v-desc">Kế hoạch phát triển 70-20-10 · 20 agent + 5 Lead · tiến độ theo quý</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3: Báo cáo -->
+      <div class="smap-mod">
+        <div class="smap-mod-hd open" onclick="toggleSmap(this)">
+          <div class="smap-mod-ico" style="background:var(--yel50);color:var(--yel600)">📊</div>
+          <div>
+            <div class="smap-mod-name">Báo cáo & Phân tích</div>
+            <div class="smap-mod-desc">Tổng quan tháng, phân tích lỗi, đánh giá ca & agent</div>
+          </div>
+          <span class="smap-mod-cnt">5 views</span>
+          <span class="smap-mod-arrow">▾</span>
+        </div>
+        <div class="smap-views open">
+          <div class="smap-v" onclick="gotoView('r-tq','rpt')">
+            <div class="smap-v-ico">↗</div>
+            <div>
+              <div class="smap-v-name">Tổng quan tháng</div>
+              <div class="smap-v-desc">1,284 sự vụ · SLA 91.4% · FRT 4:12 · CSAT 4.3/5 · Chart volume theo ngày · phân bổ kênh & danh mục</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('r-nc','rpt')">
+            <div class="smap-v-ico">◈</div>
+            <div>
+              <div class="smap-v-name">Lỗi Nội dung</div>
+              <div class="smap-v-desc">295 sự vụ · phân loại 7 loại lỗi · top môn học · nguồn phát hiện (72% KH báo trước)</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('r-kt','rpt')">
+            <div class="smap-v-ico">⚙</div>
+            <div>
+              <div class="smap-v-name">Lỗi Kỹ thuật</div>
+              <div class="smap-v-desc">462 sự vụ · 6 loại lỗi · heatmap theo giờ · tỷ lệ escalation IT 27.5%</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('r-ca','rpt')">
+            <div class="smap-v-ico">⊞</div>
+            <div>
+              <div class="smap-v-name">Đánh giá Ca trực</div>
+              <div class="smap-v-desc">3 ca · 5 Lead · so sánh KPI giữa các ca · cảnh báo ca yếu</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('r-ag','rpt')">
+            <div class="smap-v-ico">◎</div>
+            <div>
+              <div class="smap-v-name">Hiệu suất Agent (KPI)</div>
+              <div class="smap-v-desc">20 agent · bảng xếp hạng đầy đủ: ticket, FRT, SLA, CSAT, reopen, coaching list</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 4: Hệ thống (this map) -->
+      <div class="smap-mod">
+        <div class="smap-mod-hd" onclick="toggleSmap(this)">
+          <div class="smap-mod-ico" style="background:var(--pur50);color:var(--pur600)">🗺</div>
+          <div>
+            <div class="smap-mod-name">Bản đồ hệ thống</div>
+            <div class="smap-mod-desc">Trang này + Roadmap phát triển</div>
+          </div>
+          <span class="smap-mod-cnt">2 views</span>
+          <span class="smap-mod-arrow">▾</span>
+        </div>
+        <div class="smap-views">
+          <div class="smap-v" style="opacity:.6;cursor:default">
+            <div class="smap-v-ico">🗺</div>
+            <div>
+              <div class="smap-v-name">Toàn bộ hệ thống <span style="font-size:10px;color:var(--p600)">(đang xem)</span></div>
+              <div class="smap-v-desc">Bản đồ tất cả module & view hiện có</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+          </div>
+          <div class="smap-v" onclick="gotoView('sysmap-roadmap','sysmap')">
+            <div class="smap-v-ico">🚀</div>
+            <div>
+              <div class="smap-v-name">Roadmap phát triển</div>
+              <div class="smap-v-desc">Backlog các module/view dự kiến mở rộng, phân theo phase</div>
+            </div>
+            <span class="pill pg smap-v-status">Hoàn thành</span>
+            <span class="smap-v-goto">Đi tới →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rfooter"><div>Bản đồ hệ thống CRM — Edmicro HTKH</div><div>Cập nhật 27/03/2026</div></div>
+    </div><!-- /sysmap -->
+
+    <!-- ══════ VIEW: ROADMAP ══════ -->
+    <div class="view" id="view-sysmap-roadmap">
+      <div class="al al-b" style="margin-bottom:18px"><div class="al-ico">🚀</div><div><div class="al-t">Lộ trình phát triển CRM</div>Danh sách các module/view dự kiến mở rộng. Bảo có thể chỉ định bất kỳ mục nào bên dưới để yêu cầu Claude triển khai, hoặc bổ sung ý tưởng mới.</div></div>
+
+      <!-- Phase 1: Ưu tiên cao -->
+      <div class="rm-phase">
+        <div class="rm-phase-hd">
+          <div class="rm-phase-dot" style="background:var(--red50);border-color:var(--red400)"></div>
+          <div class="rm-phase-title">Phase 1 — Ưu tiên cao</div>
+          <div class="rm-phase-sub">Cần cho vận hành hằng ngày</div>
+        </div>
+        <div class="rm-items">
+          <div class="rm-item">
+            <div class="rm-item-name">Quản lý Khách hàng / Trường học</div>
+            <div class="rm-item-desc">Danh sách trường đối tác, thông tin liên hệ, gói dịch vụ đang dùng, lịch sử ticket, trạng thái hợp đồng.</div>
+            <div class="rm-item-tags"><span class="pill pr">Chưa build</span><span class="pill pb">Module mới (L1)</span></div>
+          </div>
+          <div class="rm-item">
+            <div class="rm-item-name">Tổ chức Thi — Quản lý kỳ thi</div>
+            <div class="rm-item-desc">Lịch thi, danh sách trường tham gia, tiến trình chuẩn bị đề, kết quả thi, báo cáo chất lượng đề.</div>
+            <div class="rm-item-tags"><span class="pill pr">Chưa build</span><span class="pill pb">Module mới (L1)</span></div>
+          </div>
+          <div class="rm-item">
+            <div class="rm-item-name">Quản lý CTV / Nhân sự mở rộng</div>
+            <div class="rm-item-desc">Danh sách CTV, phân công vùng, theo dõi output, thanh toán, đánh giá hiệu suất.</div>
+            <div class="rm-item-tags"><span class="pill pr">Chưa build</span><span class="pill pa">Nằm trong Vận hành</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2: Trung bình -->
+      <div class="rm-phase">
+        <div class="rm-phase-hd">
+          <div class="rm-phase-dot" style="background:var(--yel50);border-color:var(--yel400)"></div>
+          <div class="rm-phase-title">Phase 2 — Ưu tiên trung bình</div>
+          <div class="rm-phase-sub">Nâng cao hiệu quả & tự động hóa</div>
+        </div>
+        <div class="rm-items">
+          <div class="rm-item">
+            <div class="rm-item-name">Nâng cấp Inbox — Tương tác thực</div>
+            <div class="rm-item-desc">Click mở chi tiết hội thoại, reply inline, gán/chuyển agent, thêm ghi chú nội bộ, đánh dấu đã xử lý.</div>
+            <div class="rm-item-tags"><span class="pill pa">Nâng cấp</span><span class="pill pb">Vận hành CSKH</span></div>
+          </div>
+          <div class="rm-item">
+            <div class="rm-item-name">Filter & Search nâng cao cho Ticket</div>
+            <div class="rm-item-desc">Lọc theo ngày, agent, danh mục, mức độ, SLA. Tìm kiếm full-text. Bulk actions.</div>
+            <div class="rm-item-tags"><span class="pill pa">Nâng cấp</span><span class="pill pb">Vận hành CSKH</span></div>
+          </div>
+          <div class="rm-item">
+            <div class="rm-item-name">Admin & Cài đặt hệ thống</div>
+            <div class="rm-item-desc">Quản lý user/role, cấu hình SLA, cấu hình routing rule, danh mục ticket, kênh.</div>
+            <div class="rm-item-tags"><span class="pill pr">Chưa build</span><span class="pill pp">Module mới</span></div>
+          </div>
+          <div class="rm-item">
+            <div class="rm-item-name">Báo cáo Tập huấn chi tiết</div>
+            <div class="rm-item-desc">Dashboard đào tạo: completion rate, skill gap analysis, xu hướng điểm theo quý.</div>
+            <div class="rm-item-tags"><span class="pill pa">Nâng cấp</span><span class="pill pb">Tập huấn</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3: Dài hạn -->
+      <div class="rm-phase">
+        <div class="rm-phase-hd">
+          <div class="rm-phase-dot" style="background:var(--grn50);border-color:var(--grn400)"></div>
+          <div class="rm-phase-title">Phase 3 — Dài hạn</div>
+          <div class="rm-phase-sub">Mở rộng & tích hợp</div>
+        </div>
+        <div class="rm-items">
+          <div class="rm-item">
+            <div class="rm-item-name">Tích hợp dữ liệu thực (API)</div>
+            <div class="rm-item-desc">Kết nối CRM với hệ thống ticketing thực, Zalo OA API, CMS Edmicro để đồng bộ dữ liệu.</div>
+            <div class="rm-item-tags"><span class="pill pgr">Dài hạn</span><span class="pill pp">Kỹ thuật</span></div>
+          </div>
+          <div class="rm-item">
+            <div class="rm-item-name">Dashboard Trưởng phòng (Executive)</div>
+            <div class="rm-item-desc">OKR/BSC tracking, ngân sách OPEX, headcount, so sánh MoM/YoY, drill-down từng nhóm.</div>
+            <div class="rm-item-tags"><span class="pill pgr">Dài hạn</span><span class="pill pb">Báo cáo</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rfooter"><div>Roadmap CRM — Edmicro HTKH</div><div>Cập nhật 27/03/2026</div></div>
+    </div><!-- /sysmap-roadmap -->
+
   </div><!-- /content -->
 </div><!-- /main -->
 </div><!-- /shell -->
@@ -1784,6 +2252,43 @@ function sw(id, el){
 }
 
 // ── VOLUME CHART ──
+// ── SYSTEM MAP ──
+function toggleSmap(el){
+  el.classList.toggle('open');
+  var views = el.nextElementSibling;
+  views.classList.toggle('open');
+}
+function gotoView(viewId, groupId){
+  // Activate L1
+  document.querySelectorAll('.l1-item').forEach(function(i){i.classList.remove('active')});
+  var l1 = document.querySelector('.l1-item[data-group="'+groupId+'"]');
+  if(l1) l1.classList.add('active');
+  // Activate L2 group
+  document.querySelectorAll('.s-group').forEach(function(g){g.classList.remove('active')});
+  var sg = document.getElementById('sg-'+groupId);
+  if(sg) sg.classList.add('active');
+  // Activate view
+  document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});
+  var view = document.getElementById('view-'+viewId);
+  if(view) view.classList.add('active');
+  // Activate corresponding nav item in L2
+  document.querySelectorAll('.nav').forEach(function(n){n.classList.remove('active')});
+  if(sg){
+    var navs = sg.querySelectorAll('.nav');
+    navs.forEach(function(n){
+      var target = n.getAttribute('onclick');
+      if(target && target.indexOf("'"+viewId+"'")!==-1){
+        n.classList.add('active');
+        document.getElementById('tb-title').textContent = n.dataset.tb||'';
+        document.getElementById('tb-meta').textContent = n.dataset.meta||'';
+        var isRpt = n.dataset.rpt==='1';
+        document.getElementById('tb-print-btn').style.display = isRpt?'':'none';
+      }
+    });
+  }
+  document.getElementById('content').scrollTop=0;
+}
+
 var volData=[
   {d:'2/3',v:38,t:'n'},{d:'3/3',v:42,t:'n'},{d:'4/3',v:35,t:'n'},{d:'5/3',v:44,t:'n'},
   {d:'6/3',v:30,t:'w'},{d:'7/3',v:22,t:'w'},{d:'8/3',v:45,t:'n'},{d:'9/3',v:48,t:'n'},
